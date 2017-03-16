@@ -1,0 +1,282 @@
+R idioms that I can't seem to remember if I don't use it for a couple months.
+
+
+setwd("s:/landau/python/R")
+
+source("scriptfile.r")
+
+dat <- data.frame(read.table("s:/landau/python/dev/preservationsimulation/shelf/q0-alldata-medians-00.txt", header=TRUE))
+
+read.csv    # comma sep
+read.delim  # tab sep
+
+for (var in c(val1,val2,val3)) { statements }
+
+c(rep("string",ntimes))
+
+factors
+fdocsize <- factor(dd$docsize)
+fberid <- factor(dd$berid)
+fcopies <- factor(dd$copies)
+
+levels
+ldocsize <- levels(fdocsize)
+lberid <- levels(fberid)
+lcopies <- levels(fcopies)
+
+length(l.copies)
+
+2:5 is the list 2,3,4,5, same as c(2,3,4,5)
+x[c(2,3,4)] is x[2:4] is columns 2,3,4 of all the data, 
+i.e., vars 2,3,4 (columns) 
+across all instances (rows)
+x[rownum,]  # that row
+x[,colnum]  # that column
+
+rep(thing,count)
+seq(from, to, by, length, along)
+rep(x, times, length)       
+
+cbind(thing1,thing2)
+rbind(thing1,thing2)
+
+
+table(factor) gives count of vector items at levels of factor
+table(factor1,factor2) gives counts of the intersections of the
+two factors
+table(factor1,factor2,factor3) gives a set of tables of 
+those like table(factor1,factor2),one for each level of factor3.  
+
+#datn <- cbind(dat[,4],dat[,5],dat[,6],dat[,9])
+#datn <- cbind(dat$docsize,dat$berid,dat$copies,dat$lost)
+datn = data.frame(dat$docsize,dat$berid,dat$copies,dat$lost)
+        # creates colnames dat.docsize,dat.berid,dat.copies,dat.lost !
+
+summary(vect)
+fivenum(vect)
+
+trimean <-  function(vect) { foo = fivenum(vect); 0.5*foo[3] + 0.25*foo[2] + 0.25*foo[4]}
+trimean(datn[1:11,4]
+
+scale(data,scale=T) #centers around the mean and scales by the sd)
+colMeans(x, na.rm = FALSE, dims = 1)
+
+d5 = data.frame(datn[datn$dat.docsize==5,])
+d50 = data.frame(datn[datn$dat.docsize==50,])
+d500 = data.frame(datn[datn$dat.docsize==500,])
+d5000 = data.frame(datn[datn$dat.docsize==5000,])
+
+apply
+lapply(vectlist,"funcname",moreargs)
+vapply
+sapply
+tapply
+aggregate
+plyr
+ddply
+aggregate(d5, by=list(d5$dat.copies,d5$dat.berid),FUN=median)
+
+f.d5m.berid = factor(d5aggm$dat.berid)
+l.d5m.berid <- levels(f.d5m.berid)
+for (bb in l.d5m.berid){print(d5aggm[d5aggm$dat.berid==bb,])}
+
+d5aggm <- aggregate(d5, by=list(d5$dat.copies,d5$dat.berid),FUN=median)
+d50aggm <- aggregate(d50, by=list(d50$dat.copies,d50$dat.berid),FUN=median)
+d500aggm <- aggregate(d500, by=list(d500$dat.copies,d500$dat.berid),FUN=median)
+d5000aggm <- aggregate(d5000, by=list(d5000$dat.copies,d5000$dat.berid),FUN=median)
+
+trimean <-  function(vect) { foo = fivenum(vect); ans <- 0.5*foo[3] + 0.25*foo[2] + 0.25*foo[4]}
+
+d5aggt <- aggregate(d5, by=list(d5$dat.copies,d5$dat.berid),FUN=trimean)
+d50aggt <- aggregate(d50, by=list(d50$dat.copies,d50$dat.berid),FUN=trimean)
+d500aggt <- aggregate(d500, by=list(d500$dat.copies,d500$dat.berid),FUN=trimean)
+d5000aggt <- aggregate(d5000, by=list(d5000$dat.copies,d5000$dat.berid),FUN=trimean)
+
+
+for (bb in levels(factor(d5aggm$dat.berid))){print(d5aggm[d5aggm$dat.berid==bb,])}
+for (bb in levels(factor(d50aggm$dat.berid))){print(d50aggm[d50aggm$dat.berid==bb,])}
+for (bb in levels(factor(d500aggm$dat.berid))){print(d500aggm[d500aggm$dat.berid==bb,])}
+for (bb in levels(factor(d5000aggm$dat.berid))){print(d5000aggm[d5000aggm$dat.berid==bb,])}
+
+for (bb in levels(factor(d5aggt$dat.berid))){print(d5aggt[d5aggt$dat.berid==bb,])}
+for (bb in levels(factor(d50aggt$dat.berid))){print(d50aggt[d50aggt$dat.berid==bb,])}
+for (bb in levels(factor(d500aggt$dat.berid))){print(d500aggt[d500aggt$dat.berid==bb,])}
+for (bb in levels(factor(d5000aggt$dat.berid))){print(d5000aggt[d5000aggt$dat.berid==bb,])}
+
+for (ds in levels(factor(dat$docsize))) {tmp<-dat[dat$docsize==ds,]}
+
+#for (ds in levels(factor(dat$docsize))){
+#    tmp <- data.frame(datn[datn$dat.docsize==ds,])
+#    #aggm <- aggregate(tmp, by=list(tmp$copies,tmp$berid), FUN=median)
+#}
+
+datn = data.frame(dat$docsize,dat$berid,dat$copies,dat$lost)
+for (ds in levels(factor(datn$dat.docsize))){
+    tmp <- data.frame(datn[datn$dat.docsize==ds,])
+    aggm <- aggregate(tmp, by=list(tmp$dat.copies,tmp$dat.berid), FUN=median)
+    aggt <- aggregate(tmp, by=list(tmp$dat.copies,tmp$dat.berid), FUN=trimean)
+#    print(aggm)
+#    print(aggt)
+    for (bb in levels(factor(aggm$dat.berid))) {print(aggm[aggm$dat.berid==bb,])}
+}
+
+for (ds in levels(factor(datn$dat.docsize))){
+    tmp <- data.frame(datn[datn$dat.docsize==ds,]);
+    for (be in levels(factor(tmp$dat.berid))) {
+        tmp2 <- tmp[tmp$dat.berid==be,]
+        print(ds)
+        print(be)
+        tmp3 = aggregate(tmp2, by=list(tmp2$dat.copies), FUN=median)
+        print(tmp3)
+    }
+}
+
+trimean <-  function(vect) { foo = fivenum(vect); ans <- 0.5*foo[3] + 0.25*foo[2] + 0.25*foo[4]}
+
+# Summary table with medians.
+summ <- data.frame(cbind(0,0,1,2,3,4,5,8,10,14,16,20))
+colnames(summ) <- c("docsize","berid","c1","c2","c3","c4","c5","c8","c10","c14","c16","c20")
+datn = data.frame(dat$docsize,dat$berid,dat$copies,dat$lost)
+colnames(datn)<-c("ds","be","lost")
+for (ds in levels(factor(datn$dat.docsize))){
+    tmp <- data.frame(datn[datn$dat.docsize==ds,]);
+    for (be in levels(factor(tmp$dat.berid))) {
+        tmp2 <- tmp[tmp$dat.berid==be,]
+        tmp3 = aggregate(tmp2, by=list(tmp2$dat.copies), FUN=median)
+        newrow <- c(ds,be,tmp3$dat.lost)
+        if (length(newrow) < length(colnames(summ)))
+        {
+            filler <- rep(0,length(colnames(summ)) - length(newrow))
+            #print(c(length(filler),"=>",filler))
+            #print(c(length(newrow),"=>",newrow))
+            newrow <- c(newrow,filler)
+        }
+        print(newrow)
+        summ <- rbind(summ,newrow)
+    }
+}
+summ <- summ[-1,]
+rownames(summ) <- NULL
+
+# New columns can be added to data frame, by assigning to a
+# currently non-existent column name (this works for lists too)
+
+thue2 <- subset(thuesen, blood.glucose < 7)
+
+thue3 <- transform(thue2, log.gluc = log(blood.glucose))
+
+sink("output.txt")
+print(...)
+cat(...)
+sink()
+or 
+cat("Hello",file="outfile.txt",sep="\n")
+cat("World",file="outfile.txt",append=TRUE)
+or 
+txt <- "Hallo\nWorld"
+writeLines(txt, "outfile.txt")
+
+# direct output to a file
+sink("myfile", append=FALSE, split=FALSE)
+ . . . 
+# return output to the terminal
+sink()
+
+# starts up an external editor
+file.show("filename.txt")
+
+sapply(summ,mode)   # are the columns numeric or character?
+sapply(summ,class)  # similarly
+
+numeric(N)  # numeric vector of length n
+as.numeric(something)   # convert all items of vector to numeric
+
+# Summary table with medians.
+#summ <- data.frame(cbind(0,0,1,2,3,4,5,8,10,14,16,20))
+summ <- data.frame(rbind(numeric(12)))
+colnames(summ) <- c("docsize","berid","c1","c2","c3","c4","c5","c8","c10","c14","c16","c20")
+datn = data.frame(dat$docsize,dat$berid,dat$copies,dat$lost)
+for (ds in levels(factor(datn$dat.docsize)))
+{
+    tmp <- data.frame(datn[datn$dat.docsize==ds,]);
+    for (be in levels(factor(tmp$dat.berid))) 
+    {
+        tmp2 <- tmp[tmp$dat.berid==be,]
+        tmp3 = aggregate(tmp2, by=list(tmp2$dat.copies), FUN=median)
+        newrow <- c(ds,be,tmp3$dat.lost)
+        if (length(newrow) < length(colnames(summ)))
+        {
+            filler <- rep(0,length(colnames(summ)) - length(newrow))
+            #print(c(length(filler),"=>",filler))
+            #print(c(length(newrow),"=>",newrow))
+            newrow <- c(newrow,filler)
+        }
+        print(newrow)
+        summ <- rbind(summ,as.numeric(newrow))
+    }
+}
+summ <- summ[-1,]
+rownames(summ) <- NULL
+
+cat("foo","bar")    # space between but no quotes and no \n
+cat("label",value,"\n")
+
+sink( ) will not redirect graphic output. To redirect graphic output use one of the following functions. Use dev.off( ) to return output to the terminal.
+Function 	Output to
+pdf("mygraph.pdf") 	pdf file
+win.metafile("mygraph.wmf") 	windows metafile
+png("mygraph.png") 	png file
+jpeg("mygraph.jpg") 	jpeg file
+bmp("mygraph.bmp") 	bmp file
+postscript("mygraph.ps") 	postscript file
+
+Use a full path in the file name to save the graph outside of the current working directory. 
+
+apply(dataframe, 1or2, function)    # 1 by rows, 2 by columns
+sapply(1:3, function(x) x^2)
+#[1] 1 4 9
+lapply(1:3, function(x) x^2)
+#[[1]]
+#[1] 1
+#
+#[[2]]
+#[1] 4
+#
+#[[3]]
+#[1] 9
+unlist(lapply(1:3, function(x) x^2))
+#[1] 1 4 9
+sapply(1:3, function(x, y) mean(y[,x]), y=m)
+#[1] -0.02664418  1.95812458  4.86857792
+
+apply()
+eapply(environment, function)      # environment var
+lapply(list, function)  # return list
+mapply()    # multivariate version of sapply()?
+rapply()    # recursive?
+sapply(list, function)
+tapply(list, index, function)   # for ragged arrays?
+vapply(list, function, outputtemplate)
+
+by(columns, factor, function)
+replicate(ntimes, function)
+
+sweep
+column
+row
+
+commandArgs <- function() 1:3  or 
+commandArgs <- function() c("foo", "bar")
+source("testcli0.r")
+where testcli0.r is 
+print(commandArgs())
+
+
+
+
+
+
+
+
+
+

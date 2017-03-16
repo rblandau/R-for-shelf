@@ -1,0 +1,41 @@
+#setwd
+getwd()
+h <- read.csv("GaltonFamilies.csv")
+
+# Boxplot of just the Dependent / Outcome Variable
+boxplot(h$child,data=h)
+boxplot(h$child,data=h, notch=FALSE, outline=TRUE, col="purple")
+boxplot(h$child,data=h, plot=FALSE)
+
+# Boxplot of  by Gender
+boxplot(h$child~gender,data=h)
+boxplot(h$child~gender,data=h, col=(c("pink","lightblue")))
+# with Labels
+boxplot(h$child~gender,data=h, col=(c("pink","lightblue")), 
+        main="Children's Height by Gender", xlab="Gender", ylab="")
+
+
+# Subset
+men<-subset(h, gender=='male')
+women <-subset(h, gender=='female')
+mean(men$child) - mean(women$child)
+
+# Stats and Plots
+hist(men$child)
+summary(men$child)
+
+hist(women$child)
+summary(women$child)
+
+#qqplot
+qqnorm(men$child)
+qqline(men$child)
+
+qqnorm(women$child)
+qqline(women$child)
+
+#ggplot2 box and whiskers
+library(ggplot2)
+h.bb <- ggplot(h, aes(factor(gender), child))
+h.bb + geom_boxplot()
+h.bb + geom_boxplot(aes(fill = factor(gender)))

@@ -1,0 +1,31 @@
+#basic stats
+mean(77,66,80)
+max(77,66,80)
+
+#assign to a variable
+h <- c(77, 66, 80)
+mean(h)
+max(h)
+
+#charts
+plot(h)
+barplot(h)
+pie(h)
+
+#data management
+sort(h)
+h2 <- sort(h)
+barplot(h2)
+
+#additional options:  missing data
+?mean
+h3 <- c(77,66,80, NA)
+
+mean(h3)
+
+mean(h3, na.rm=TRUE)
+
+mean(h3, trim=0.1, na.rm=TRUE)
+
+mean(h3, 0.1, TRUE)
+

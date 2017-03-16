@@ -1,0 +1,58 @@
+# First check to see if you are in the directory to read in the file
+# Can use drop-down menu:  Session > Set Working Directory
+
+getwd()
+
+# Then read in the file
+
+h <- read.csv("GaltonFamilies.csv")
+
+# dataset
+class(h) 
+str(h)
+head(h)
+head(h,15)
+tail(h)
+summary(h)
+
+#stats
+mean(h$child)
+median(h$child)
+sd(h$child)
+round(mean(h$child),2)
+round(sd(h$child),2)
+
+# histogram
+hist(h$child)
+hist(h$child, breaks = 20)
+hist(h$child, breaks = 25, col = "purple")
+hist(h$child, breaks = 30, col = "blue", xlim = c(55,85))
+hist(h$child, plot = FALSE)
+hist(h$child, breaks = 33, plot = FALSE)
+hist(h$child, xlab = "Height", ylab = "Frequency", main="Children's Heights")
+
+#
+# probability density
+#
+plot(density(h$child))
+
+plot(density(h$child), ylim = c(0,0.14))
+curve(dnorm(x, mean=mean(h$child), sd=sd(h$child)), col="red", add=T)
+
+#
+# ggplot2 - histogram
+#
+library(ggplot2)
+h.gg <- ggplot(h, aes(child)) 
+h.gg + geom_histogram(binwidth = 1 ) + labs(x = "Height", y = "Frequency")
+h.gg + geom_density()
+
+#density
+h.gg <- ggplot(h, aes(child)) + theme(legend.position = "right")
+h.gg + geom_density() + labs(x = "Height", y = "Frequency")
+h.gg + geom_density(aes(fill=factor(gender)), size=2)
+
+# qqplot
+#
+qqnorm(h$child)
+qqline(h$child)

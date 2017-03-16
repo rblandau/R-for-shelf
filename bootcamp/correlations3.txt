@@ -1,0 +1,34 @@
+
+# Read in the file
+h <- read.csv("GaltonFamilies.csv")
+
+#correlaton
+cor(h)
+cor(h$father,h$child)
+plot(h$father,h$child)
+cor(h$mother,h$child)
+plot(h$mother,h$child)
+
+#scatterplot more
+plot(h$father,h$child, col = "blue")
+plot(h$father,h$child, xlim = c(55,80), ylim = c(55,80), col = "navy")
+
+### Correlation Matrices
+pairs(h)
+
+## Install Correlation Matrix Package
+install.packages("car")
+library(car)
+scatterplotMatrix(h)
+
+#gender recoded as a numeric
+h$gender.data <- as.numeric(h$gender)
+cor(h$gender.data, h$child)
+plot(h$gender.data, h$child)
+
+#scatter ggplot2
+library(ggplot2)
+h.cc <- ggplot(h, aes(father, child))
+h.cc + geom_point()
+h.cc + geom_point(aes(size = 3, shape = gender))
+h.cc + geom_point(aes(colour = gender,  shape=gender))

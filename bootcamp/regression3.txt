@@ -1,0 +1,25 @@
+# Read in the file
+h <- read.csv("GaltonFamilies.csv")
+
+#gender recoded as a numeric
+h$gender.data <- as.numeric(h$gender)
+
+cor(h$father,h$child)^2
+cor(h$mother,h$child)^2
+cor(h$gender.data, h$child)^2
+
+model.1 <- lm(child~father, data = h)
+model.2 <- lm(child~mother, data = h)
+model.3 <- lm(child~father + mother, data = h)
+model.4 <- lm(child~gender, data = h)
+model.5 <- lm(child~father + mother + gender, data = h)
+
+summary(model.1)
+summary(model.2)
+summary(model.3)
+summary(model.4)
+summary(model.5)
+
+plot(model.5)
+model.5.res <- resid(model.5)
+plot(h$child, model.5.res)

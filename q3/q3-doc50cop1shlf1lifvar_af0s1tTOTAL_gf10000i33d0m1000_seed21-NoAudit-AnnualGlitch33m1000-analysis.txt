@@ -1,0 +1,352 @@
+Q3 copies=1 Glitch Annual 33% impact 1000hr max, no decay, Audit None, seed21 
+Input data from  ./GiantOutput_doc50cop1shlf1lifvar_af0s1tTOTAL_gf10000i33d0m1000-seed21-output-00.txt 
+Output analysis into  ./q3-doc50cop1shlf1lifvar_af0s1tTOTAL_gf10000i33d0m1000_seed21-NoAudit-AnnualGlitch33m1000-analysis.txt 
+
+Question 3 Summary losses (medians)
+   docsize lifem glitchimpact   c1 c2 c3 c4 c5 c8 c10 c14
+1       50     3           33 8206  0  0  0  0  0   0   0
+2       50     5           33 6434  0  0  0  0  0   0   0
+3       50    10           33 4039  0  0  0  0  0   0   0
+4       50    20           33 2259  0  0  0  0  0   0   0
+5       50    30           33 1586  0  0  0  0  0   0   0
+6       50    50           33  986  0  0  0  0  0   0   0
+7       50   100           33  502  0  0  0  0  0   0   0
+8       50   200           33  255  0  0  0  0  0   0   0
+9       50   300           33  166  0  0  0  0  0   0   0
+10      50   500           33  104  0  0  0  0  0   0   0
+11      50  1000           33   54  0  0  0  0  0   0   0
+12      50  2000           33   27  0  0  0  0  0   0   0
+   c16 c20
+1    0   0
+2    0   0
+3    0   0
+4    0   0
+5    0   0
+6    0   0
+7    0   0
+8    0   0
+9    0   0
+10   0   0
+11   0   0
+12   0   0
+
+Question 3 Summary losses (trimeans)
+   docsize lifem glitchimpact      c1 c2 c3 c4 c5 c8 c10
+1       50     3           33 8200.50  0  0  0  0  0   0
+2       50     5           33 6432.75  0  0  0  0  0   0
+3       50    10           33 4036.50  0  0  0  0  0   0
+4       50    20           33 2255.00  0  0  0  0  0   0
+5       50    30           33 1589.50  0  0  0  0  0   0
+6       50    50           33  984.75  0  0  0  0  0   0
+7       50   100           33  501.50  0  0  0  0  0   0
+8       50   200           33  254.25  0  0  0  0  0   0
+9       50   300           33  167.75  0  0  0  0  0   0
+10      50   500           33  104.25  0  0  0  0  0   0
+11      50  1000           33   54.00  0  0  0  0  0   0
+12      50  2000           33   27.00  0  0  0  0  0   0
+   c14 c16 c20
+1    0   0   0
+2    0   0   0
+3    0   0   0
+4    0   0   0
+5    0   0   0
+6    0   0   0
+7    0   0   0
+8    0   0   0
+9    0   0   0
+10   0   0   0
+11   0   0   0
+12   0   0   0
+
+Question 3 Summary losses (midmeans)
+   docsize lifem glitchimpact      c1 c2 c3 c4 c5 c8 c10
+1       50     3           33 8204.45  0  0  0  0  0   0
+2       50     5           33 6433.27  0  0  0  0  0   0
+3       50    10           33 4034.09  0  0  0  0  0   0
+4       50    20           33 2260.82  0  0  0  0  0   0
+5       50    30           33 1590.18  0  0  0  0  0   0
+6       50    50           33  983.73  0  0  0  0  0   0
+7       50   100           33  503.55  0  0  0  0  0   0
+8       50   200           33  254.91  0  0  0  0  0   0
+9       50   300           33  168.55  0  0  0  0  0   0
+10      50   500           33  103.55  0  0  0  0  0   0
+11      50  1000           33   54.45  0  0  0  0  0   0
+12      50  2000           33   26.73  0  0  0  0  0   0
+   c14 c16 c20
+1    0   0   0
+2    0   0   0
+3    0   0   0
+4    0   0   0
+5    0   0   0
+6    0   0   0
+7    0   0   0
+8    0   0   0
+9    0   0   0
+10   0   0   0
+11   0   0   0
+12   0   0   0
+
+
+============================================
+===  docsize 50 lifem 3 copies 1 glitchimpact 33 N 21 
+
+  The decimal point is 2 digit(s) to the right of the |
+
+  81 | 244
+  81 | 5557999
+  82 | 123344
+  82 | 5569
+  83 | 2
+
+docsize 50 lifem 3 copies 1 glitchimpact 33 N 21 
+median 		 8206 
+trimean 	 8200.5 
+midmean 	 8204.455 
+mean 		 8205.19 
+stddev 		 54.68603 
+IQR 		 94 
+mad 		 63.7518 
+SEM 		 11.93347 
+MeanOverSEM 	 687.5779 
+LogMeanOverSEM 	 2.837322 
+
+===  docsize 50 lifem 5 copies 1 glitchimpact 33 N 21 
+
+  The decimal point is 2 digit(s) to the right of the |
+
+  63 | 2
+  63 | 7799
+  64 | 01223344
+  64 | 567779
+  65 | 3
+  65 | 6
+
+docsize 50 lifem 5 copies 1 glitchimpact 33 N 21 
+median 		 6434 
+trimean 	 6432.75 
+midmean 	 6433.273 
+mean 		 6434.524 
+stddev 		 55.99609 
+IQR 		 69 
+mad 		 51.891 
+SEM 		 12.21935 
+MeanOverSEM 	 526.5849 
+LogMeanOverSEM 	 2.721468 
+
+===  docsize 50 lifem 10 copies 1 glitchimpact 33 N 21 
+
+  The decimal point is 2 digit(s) to the right of the |
+
+  39 | 566888999
+  40 | 344
+  40 | 78889999
+  41 | 1
+
+docsize 50 lifem 10 copies 1 glitchimpact 33 N 21 
+median 		 4039 
+trimean 	 4036.5 
+midmean 	 4034.091 
+mean 		 4032.286 
+stddev 		 53.8954 
+IQR 		 100 
+mad 		 75.6126 
+SEM 		 11.76094 
+MeanOverSEM 	 342.854 
+LogMeanOverSEM 	 2.535109 
+
+===  docsize 50 lifem 20 copies 1 glitchimpact 33 N 21 
+
+  The decimal point is 2 digit(s) to the right of the |
+
+  21 | 799
+  22 | 022
+  22 | 5566677888
+  23 | 0024
+  23 | 6
+
+docsize 50 lifem 20 copies 1 glitchimpact 33 N 21 
+median 		 2259 
+trimean 	 2255 
+midmean 	 2260.818 
+mean 		 2259.905 
+stddev 		 49.91483 
+IQR 		 60 
+mad 		 56.3388 
+SEM 		 10.89231 
+MeanOverSEM 	 207.4771 
+LogMeanOverSEM 	 2.31697 
+
+===  docsize 50 lifem 30 copies 1 glitchimpact 33 N 21 
+
+  The decimal point is 2 digit(s) to the right of the |
+
+  15 | 33
+  15 | 667777899
+  16 | 00112344
+  16 | 66
+
+docsize 50 lifem 30 copies 1 glitchimpact 33 N 21 
+median 		 1586 
+trimean 	 1589.5 
+midmean 	 1590.182 
+mean 		 1593.286 
+stddev 		 36.98262 
+IQR 		 44 
+mad 		 29.652 
+SEM 		 8.07027 
+MeanOverSEM 	 197.4266 
+LogMeanOverSEM 	 2.295406 
+
+===  docsize 50 lifem 50 copies 1 glitchimpact 33 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+   92 | 8
+   94 | 668
+   96 | 36895
+   98 | 267557
+  100 | 1445
+  102 | 04
+
+docsize 50 lifem 50 copies 1 glitchimpact 33 N 21 
+median 		 986 
+trimean 	 984.75 
+midmean 	 983.7273 
+mean 		 984.2381 
+stddev 		 27.01834 
+IQR 		 35 
+mad 		 26.6868 
+SEM 		 5.895884 
+MeanOverSEM 	 166.9365 
+LogMeanOverSEM 	 2.222551 
+
+===  docsize 50 lifem 100 copies 1 glitchimpact 33 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  46 | 449
+  48 | 25719
+  50 | 0126233589
+  52 | 13
+  54 | 5
+
+docsize 50 lifem 100 copies 1 glitchimpact 33 N 21 
+median 		 502 
+trimean 	 501.5 
+midmean 	 503.5455 
+mean 		 502.8095 
+stddev 		 20.58548 
+IQR 		 28 
+mad 		 22.239 
+SEM 		 4.49212 
+MeanOverSEM 	 111.9315 
+LogMeanOverSEM 	 2.048952 
+
+===  docsize 50 lifem 200 copies 1 glitchimpact 33 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  20 | 8
+  22 | 02
+  24 | 2569934579
+  26 | 01146911
+
+docsize 50 lifem 200 copies 1 glitchimpact 33 N 21 
+median 		 255 
+trimean 	 254.25 
+midmean 	 254.9091 
+mean 		 252.9524 
+stddev 		 13.94445 
+IQR 		 15 
+mad 		 13.3434 
+SEM 		 3.042928 
+MeanOverSEM 	 83.12796 
+LogMeanOverSEM 	 1.919747 
+
+===  docsize 50 lifem 300 copies 1 glitchimpact 33 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  14 | 29
+  15 | 16
+  16 | 02456667
+  17 | 1467899
+  18 | 8
+  19 | 0
+
+docsize 50 lifem 300 copies 1 glitchimpact 33 N 21 
+median 		 166 
+trimean 	 167.75 
+midmean 	 168.5455 
+mean 		 167.9048 
+stddev 		 12.29595 
+IQR 		 15 
+mad 		 14.826 
+SEM 		 2.683197 
+MeanOverSEM 	 62.57638 
+LogMeanOverSEM 	 1.79641 
+
+===  docsize 50 lifem 500 copies 1 glitchimpact 33 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+   9 | 011589
+  10 | 011344467
+  11 | 01238
+  12 | 2
+
+docsize 50 lifem 500 copies 1 glitchimpact 33 N 21 
+median 		 104 
+trimean 	 104.25 
+midmean 	 103.5455 
+mean 		 103.8095 
+stddev 		 8.582651 
+IQR 		 11 
+mad 		 8.8956 
+SEM 		 1.872888 
+MeanOverSEM 	 55.42751 
+LogMeanOverSEM 	 1.743725 
+
+===  docsize 50 lifem 1000 copies 1 glitchimpact 33 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  4 | 11
+  4 | 568
+  5 | 0133344
+  5 | 7888
+  6 | 11233
+
+docsize 50 lifem 1000 copies 1 glitchimpact 33 N 21 
+median 		 54 
+trimean 	 54 
+midmean 	 54.45455 
+mean 		 53.80952 
+stddev 		 6.808958 
+IQR 		 8 
+mad 		 5.9304 
+SEM 		 1.485836 
+MeanOverSEM 	 36.21497 
+LogMeanOverSEM 	 1.558888 
+
+===  docsize 50 lifem 2000 copies 1 glitchimpact 33 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  1 | 9
+  2 | 123334
+  2 | 56677889
+  3 | 123333
+
+docsize 50 lifem 2000 copies 1 glitchimpact 33 N 21 
+median 		 27 
+trimean 	 27 
+midmean 	 26.72727 
+mean 		 26.95238 
+stddev 		 4.352886 
+IQR 		 8 
+mad 		 5.9304 
+SEM 		 0.9498777 
+MeanOverSEM 	 28.37458 
+LogMeanOverSEM 	 1.452929 
+

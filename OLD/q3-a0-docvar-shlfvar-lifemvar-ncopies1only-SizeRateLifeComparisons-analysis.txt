@@ -1,0 +1,809 @@
+Q3 NO audit, Docsize-Shelfsize-Lifetime comparisons nCopies=1 only 
+Input data from  ./q3-a0-docvar-shlfvar-lifemvar-copies1only-output-00.txt 
+Output analysis into  ./q3-a0-docvar-shlfvar-lifemvar-dopies1only-SizeRateLifeComparisons-analysis.txt 
+
+Question 3 Summary losses (medians)
+   docsize lifem shelfsize   c1 c2 c3 c4 c5 c8 c10 c14 c16 c20
+1        5    10         1  480  0  0  0  0  0   0   0   0   0
+2        5    30         1  163  0  0  0  0  0   0   0   0   0
+3        5   100         1   47  0  0  0  0  0   0   0   0   0
+4        5   300         1   16  0  0  0  0  0   0   0   0   0
+5        5  1000         1    5  0  0  0  0  0   0   0   0   0
+6       50    10         1 3936  0  0  0  0  0   0   0   0   0
+7       50    30         1 1533  0  0  0  0  0   0   0   0   0
+8       50   100         1  491  0  0  0  0  0   0   0   0   0
+9       50   300         1  166  0  0  0  0  0   0   0   0   0
+10      50  1000         1   52  0  0  0  0  0   0   0   0   0
+11     500    10         1 9935  0  0  0  0  0   0   0   0   0
+12     500    30         1 8118  0  0  0  0  0   0   0   0   0
+13     500   100         1 3927  0  0  0  0  0   0   0   0   0
+14     500   300         1 1537  0  0  0  0  0   0   0   0   0
+15     500  1000         1  483  0  0  0  0  0   0   0   0   0
+16       5    10        10  477  0  0  0  0  0   0   0   0   0
+17       5    30        10  162  0  0  0  0  0   0   0   0   0
+18       5   100        10   46  0  0  0  0  0   0   0   0   0
+19       5   300        10   16  0  0  0  0  0   0   0   0   0
+20       5  1000        10    5  0  0  0  0  0   0   0   0   0
+21      50    10        10 3929  0  0  0  0  0   0   0   0   0
+22      50    30        10 1543  0  0  0  0  0   0   0   0   0
+23      50   100        10  481  0  0  0  0  0   0   0   0   0
+24      50   300        10  163  0  0  0  0  0   0   0   0   0
+25      50  1000        10   47  0  0  0  0  0   0   0   0   0
+26     500    10        10 9928  0  0  0  0  0   0   0   0   0
+27     500    30        10 8110  0  0  0  0  0   0   0   0   0
+28     500   100        10 3936  0  0  0  0  0   0   0   0   0
+29     500   300        10 1534  0  0  0  0  0   0   0   0   0
+30     500  1000        10  491  0  0  0  0  0   0   0   0   0
+
+Question 3 Summary losses (trimeans)
+   docsize lifem shelfsize      c1 c2 c3 c4 c5 c8 c10 c14 c16
+1        5    10         1  480.50  0  0  0  0  0   0   0   0
+2        5    30         1  162.25  0  0  0  0  0   0   0   0
+3        5   100         1   48.00  0  0  0  0  0   0   0   0
+4        5   300         1   15.50  0  0  0  0  0   0   0   0
+5        5  1000         1    5.00  0  0  0  0  0   0   0   0
+6       50    10         1 3936.75  0  0  0  0  0   0   0   0
+7       50    30         1 1536.50  0  0  0  0  0   0   0   0
+8       50   100         1  490.75  0  0  0  0  0   0   0   0
+9       50   300         1  165.50  0  0  0  0  0   0   0   0
+10      50  1000         1   52.25  0  0  0  0  0   0   0   0
+11     500    10         1 9935.50  0  0  0  0  0   0   0   0
+12     500    30         1 8122.25  0  0  0  0  0   0   0   0
+13     500   100         1 3927.50  0  0  0  0  0   0   0   0
+14     500   300         1 1540.00  0  0  0  0  0   0   0   0
+15     500  1000         1  483.50  0  0  0  0  0   0   0   0
+16       5    10        10  481.00  0  0  0  0  0   0   0   0
+17       5    30        10  161.75  0  0  0  0  0   0   0   0
+18       5   100        10   46.75  0  0  0  0  0   0   0   0
+19       5   300        10   16.25  0  0  0  0  0   0   0   0
+20       5  1000        10    5.25  0  0  0  0  0   0   0   0
+21      50    10        10 3925.00  0  0  0  0  0   0   0   0
+22      50    30        10 1542.00  0  0  0  0  0   0   0   0
+23      50   100        10  481.50  0  0  0  0  0   0   0   0
+24      50   300        10  162.00  0  0  0  0  0   0   0   0
+25      50  1000        10   48.00  0  0  0  0  0   0   0   0
+26     500    10        10 9928.50  0  0  0  0  0   0   0   0
+27     500    30        10 8109.50  0  0  0  0  0   0   0   0
+28     500   100        10 3936.50  0  0  0  0  0   0   0   0
+29     500   300        10 1536.00  0  0  0  0  0   0   0   0
+30     500  1000        10  491.00  0  0  0  0  0   0   0   0
+   c20
+1    0
+2    0
+3    0
+4    0
+5    0
+6    0
+7    0
+8    0
+9    0
+10   0
+11   0
+12   0
+13   0
+14   0
+15   0
+16   0
+17   0
+18   0
+19   0
+20   0
+21   0
+22   0
+23   0
+24   0
+25   0
+26   0
+27   0
+28   0
+29   0
+30   0
+
+Question 3 Summary losses (midmeans)
+   docsize lifem shelfsize      c1 c2 c3 c4 c5 c8 c10 c14 c16
+1        5    10         1  482.09  0  0  0  0  0   0   0   0
+2        5    30         1  162.09  0  0  0  0  0   0   0   0
+3        5   100         1   48.09  0  0  0  0  0   0   0   0
+4        5   300         1   14.73  0  0  0  0  0   0   0   0
+5        5  1000         1    4.82  0  0  0  0  0   0   0   0
+6       50    10         1 3940.82  0  0  0  0  0   0   0   0
+7       50    30         1 1535.09  0  0  0  0  0   0   0   0
+8       50   100         1  489.45  0  0  0  0  0   0   0   0
+9       50   300         1  165.55  0  0  0  0  0   0   0   0
+10      50  1000         1   52.18  0  0  0  0  0   0   0   0
+11     500    10         1 9935.91  0  0  0  0  0   0   0   0
+12     500    30         1 8123.27  0  0  0  0  0   0   0   0
+13     500   100         1 3929.00  0  0  0  0  0   0   0   0
+14     500   300         1 1535.55  0  0  0  0  0   0   0   0
+15     500  1000         1  483.64  0  0  0  0  0   0   0   0
+16       5    10        10  481.00  0  0  0  0  0   0   0   0
+17       5    30        10  160.64  0  0  0  0  0   0   0   0
+18       5   100        10   46.64  0  0  0  0  0   0   0   0
+19       5   300        10   16.27  0  0  0  0  0   0   0   0
+20       5  1000        10    5.18  0  0  0  0  0   0   0   0
+21      50    10        10 3921.09  0  0  0  0  0   0   0   0
+22      50    30        10 1542.27  0  0  0  0  0   0   0   0
+23      50   100        10  482.45  0  0  0  0  0   0   0   0
+24      50   300        10  162.09  0  0  0  0  0   0   0   0
+25      50  1000        10   48.09  0  0  0  0  0   0   0   0
+26     500    10        10 9929.45  0  0  0  0  0   0   0   0
+27     500    30        10 8109.36  0  0  0  0  0   0   0   0
+28     500   100        10 3939.82  0  0  0  0  0   0   0   0
+29     500   300        10 1535.09  0  0  0  0  0   0   0   0
+30     500  1000        10  489.36  0  0  0  0  0   0   0   0
+   c20
+1    0
+2    0
+3    0
+4    0
+5    0
+6    0
+7    0
+8    0
+9    0
+10   0
+11   0
+12   0
+13   0
+14   0
+15   0
+16   0
+17   0
+18   0
+19   0
+20   0
+21   0
+22   0
+23   0
+24   0
+25   0
+26   0
+27   0
+28   0
+29   0
+30   0
+
+
+============================================
+===  docsize 5 lifem 10 copies 1 shelfsize 1 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  42 | 7
+  44 | 6759
+  46 | 24458
+  48 | 06167
+  50 | 030133
+
+docsize 5 lifem 10 copies 1 shelfsize 1 N 21 
+median 		 480 
+trimean 	 480.5 
+midmean 	 482.0909 
+mean 		 480.8095 
+stddev 		 23.93871 
+IQR 		 38 
+mad 		 29.652 
+SEM 		 5.223855 
+MeanOverSEM 	 92.04113 
+LogMeanOverSEM 	 1.963982 
+
+===  docsize 5 lifem 10 copies 1 shelfsize 10 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  44 | 3
+  46 | 66780223779
+  48 | 146
+  50 | 020
+  52 | 170
+
+docsize 5 lifem 10 copies 1 shelfsize 10 N 21 
+median 		 477 
+trimean 	 481 
+midmean 	 481 
+mean 		 485.7619 
+stddev 		 21.97704 
+IQR 		 30 
+mad 		 16.3086 
+SEM 		 4.795784 
+MeanOverSEM 	 101.2894 
+LogMeanOverSEM 	 2.005564 
+
+===  docsize 5 lifem 30 copies 1 shelfsize 1 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  14 | 1289
+  15 | 04489
+  16 | 0337799
+  17 | 0089
+  18 | 1
+
+docsize 5 lifem 30 copies 1 shelfsize 1 N 21 
+median 		 163 
+trimean 	 162.25 
+midmean 	 162.0909 
+mean 		 161.4762 
+stddev 		 11.58714 
+IQR 		 15 
+mad 		 10.3782 
+SEM 		 2.528522 
+MeanOverSEM 	 63.86189 
+LogMeanOverSEM 	 1.805242 
+
+===  docsize 5 lifem 30 copies 1 shelfsize 10 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  14 | 559
+  15 | 023446
+  16 | 022259
+  17 | 048
+  18 | 69
+  19 | 4
+
+docsize 5 lifem 30 copies 1 shelfsize 10 N 21 
+median 		 162 
+trimean 	 161.75 
+midmean 	 160.6364 
+mean 		 163.2857 
+stddev 		 14.24129 
+IQR 		 17 
+mad 		 13.3434 
+SEM 		 3.107704 
+MeanOverSEM 	 52.54224 
+LogMeanOverSEM 	 1.720509 
+
+===  docsize 5 lifem 100 copies 1 shelfsize 1 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  3 | 57
+  4 | 1445667777
+  5 | 0013359
+  6 | 17
+
+docsize 5 lifem 100 copies 1 shelfsize 1 N 21 
+median 		 47 
+trimean 	 48 
+midmean 	 48.09091 
+mean 		 48.80952 
+stddev 		 7.56716 
+IQR 		 8 
+mad 		 4.4478 
+SEM 		 1.65129 
+MeanOverSEM 	 29.55843 
+LogMeanOverSEM 	 1.470681 
+
+===  docsize 5 lifem 100 copies 1 shelfsize 10 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  2 | 7
+  3 | 88
+  4 | 134445568899
+  5 | 13468
+  6 | 7
+
+docsize 5 lifem 100 copies 1 shelfsize 10 N 21 
+median 		 46 
+trimean 	 46.75 
+midmean 	 46.63636 
+mean 		 47.04762 
+stddev 		 8.255157 
+IQR 		 7 
+mad 		 4.4478 
+SEM 		 1.801423 
+MeanOverSEM 	 26.11692 
+LogMeanOverSEM 	 1.416922 
+
+===  docsize 5 lifem 300 copies 1 shelfsize 1 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  0 | 9
+  1 | 001122233
+  1 | 666778
+  2 | 0234
+  2 | 7
+
+docsize 5 lifem 300 copies 1 shelfsize 1 N 21 
+median 		 16 
+trimean 	 15.5 
+midmean 	 14.72727 
+mean 		 15.66667 
+stddev 		 5.131601 
+IQR 		 6 
+mad 		 5.9304 
+SEM 		 1.119807 
+MeanOverSEM 	 13.9905 
+LogMeanOverSEM 	 1.145833 
+
+===  docsize 5 lifem 300 copies 1 shelfsize 10 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  0 | 8
+  1 | 33334
+  1 | 55666677899
+  2 | 1234
+
+docsize 5 lifem 300 copies 1 shelfsize 10 N 21 
+median 		 16 
+trimean 	 16.25 
+midmean 	 16.27273 
+mean 		 16.57143 
+stddev 		 3.854496 
+IQR 		 5 
+mad 		 4.4478 
+SEM 		 0.8411201 
+MeanOverSEM 	 19.70162 
+LogMeanOverSEM 	 1.294502 
+
+===  docsize 5 lifem 1000 copies 1 shelfsize 1 N 21 
+
+  The decimal point is at the |
+
+  0 | 0
+  2 | 000
+  4 | 0000000000
+  6 | 0000
+  8 | 000
+
+docsize 5 lifem 1000 copies 1 shelfsize 1 N 21 
+median 		 5 
+trimean 	 5 
+midmean 	 4.818182 
+mean 		 4.904762 
+stddev 		 2.14254 
+IQR 		 2 
+mad 		 1.4826 
+SEM 		 0.4675405 
+MeanOverSEM 	 10.49056 
+LogMeanOverSEM 	 1.020799 
+
+===  docsize 5 lifem 1000 copies 1 shelfsize 10 N 21 
+
+  The decimal point is at the |
+
+  2 | 0000
+  4 | 00000000
+  6 | 0000
+  8 | 00000
+
+docsize 5 lifem 1000 copies 1 shelfsize 10 N 21 
+median 		 5 
+trimean 	 5.25 
+midmean 	 5.181818 
+mean 		 5.380952 
+stddev 		 2.155834 
+IQR 		 3 
+mad 		 1.4826 
+SEM 		 0.4704415 
+MeanOverSEM 	 11.43809 
+LogMeanOverSEM 	 1.058354 
+
+===  docsize 50 lifem 10 copies 1 shelfsize 1 N 21 
+
+  The decimal point is 2 digit(s) to the right of the |
+
+  38 | 666
+  39 | 01112344
+  39 | 56677899
+  40 | 13
+
+docsize 50 lifem 10 copies 1 shelfsize 1 N 21 
+median 		 3936 
+trimean 	 3936.75 
+midmean 	 3940.818 
+mean 		 3940.095 
+stddev 		 47.13481 
+IQR 		 59 
+mad 		 44.478 
+SEM 		 10.28566 
+MeanOverSEM 	 383.0669 
+LogMeanOverSEM 	 2.583275 
+
+===  docsize 50 lifem 10 copies 1 shelfsize 10 N 21 
+
+  The decimal point is 2 digit(s) to the right of the |
+
+  38 | 4
+  38 | 577899
+  39 | 01134444
+  39 | 66899
+  40 | 0
+
+docsize 50 lifem 10 copies 1 shelfsize 10 N 21 
+median 		 3929 
+trimean 	 3925 
+midmean 	 3921.091 
+mean 		 3921.857 
+stddev 		 46.54383 
+IQR 		 70 
+mad 		 62.2692 
+SEM 		 10.1567 
+MeanOverSEM 	 386.1351 
+LogMeanOverSEM 	 2.586739 
+
+===  docsize 50 lifem 30 copies 1 shelfsize 1 N 21 
+
+  The decimal point is 2 digit(s) to the right of the |
+
+  14 | 7
+  15 | 0011223333344
+  15 | 5777778
+
+docsize 50 lifem 30 copies 1 shelfsize 1 N 21 
+median 		 1533 
+trimean 	 1536.5 
+midmean 	 1535.091 
+mean 		 1535.143 
+stddev 		 28.82757 
+IQR 		 50 
+mad 		 31.1346 
+SEM 		 6.290691 
+MeanOverSEM 	 244.0341 
+LogMeanOverSEM 	 2.38745 
+
+===  docsize 50 lifem 30 copies 1 shelfsize 10 N 21 
+
+  The decimal point is 2 digit(s) to the right of the |
+
+  14 | 899
+  15 | 11234444
+  15 | 5555666679
+
+docsize 50 lifem 30 copies 1 shelfsize 10 N 21 
+median 		 1543 
+trimean 	 1542 
+midmean 	 1542.273 
+mean 		 1537.905 
+stddev 		 28.66689 
+IQR 		 34 
+mad 		 25.2042 
+SEM 		 6.255628 
+MeanOverSEM 	 245.8434 
+LogMeanOverSEM 	 2.390659 
+
+===  docsize 50 lifem 100 copies 1 shelfsize 1 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  44 | 2
+  46 | 67259
+  48 | 116013344
+  50 | 25785
+  52 | 4
+
+docsize 50 lifem 100 copies 1 shelfsize 1 N 21 
+median 		 491 
+trimean 	 490.75 
+midmean 	 489.4545 
+mean 		 489.2857 
+stddev 		 19.79935 
+IQR 		 23 
+mad 		 17.7912 
+SEM 		 4.320573 
+MeanOverSEM 	 113.2456 
+LogMeanOverSEM 	 2.054021 
+
+===  docsize 50 lifem 100 copies 1 shelfsize 10 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  42 | 8
+  44 | 694
+  46 | 055257
+  48 | 151899
+  50 | 39244
+
+docsize 50 lifem 100 copies 1 shelfsize 10 N 21 
+median 		 481 
+trimean 	 481.5 
+midmean 	 482.4545 
+mean 		 481.2381 
+stddev 		 23.84514 
+IQR 		 34 
+mad 		 26.6868 
+SEM 		 5.203435 
+MeanOverSEM 	 92.48469 
+LogMeanOverSEM 	 1.96607 
+
+===  docsize 50 lifem 300 copies 1 shelfsize 1 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  14 | 245
+  15 | 188
+  16 | 22456669
+  17 | 122446
+  18 | 9
+
+docsize 50 lifem 300 copies 1 shelfsize 1 N 21 
+median 		 166 
+trimean 	 165.5 
+midmean 	 165.5455 
+mean 		 164.0952 
+stddev 		 11.57111 
+IQR 		 14 
+mad 		 8.8956 
+SEM 		 2.525022 
+MeanOverSEM 	 64.98764 
+LogMeanOverSEM 	 1.812831 
+
+===  docsize 50 lifem 300 copies 1 shelfsize 10 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  14 | 0389
+  15 | 13489
+  16 | 1337799
+  17 | 0099
+  18 | 1
+
+docsize 50 lifem 300 copies 1 shelfsize 10 N 21 
+median 		 163 
+trimean 	 162 
+midmean 	 162.0909 
+mean 		 161.5714 
+stddev 		 11.65149 
+IQR 		 16 
+mad 		 10.3782 
+SEM 		 2.542563 
+MeanOverSEM 	 63.54668 
+LogMeanOverSEM 	 1.803093 
+
+===  docsize 50 lifem 1000 copies 1 shelfsize 1 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  4 | 134478999
+  5 | 02346777889
+  6 | 6
+
+docsize 50 lifem 1000 copies 1 shelfsize 1 N 21 
+median 		 52 
+trimean 	 52.25 
+midmean 	 52.18182 
+mean 		 51.95238 
+stddev 		 6.383386 
+IQR 		 9 
+mad 		 7.413 
+SEM 		 1.392969 
+MeanOverSEM 	 37.29615 
+LogMeanOverSEM 	 1.571664 
+
+===  docsize 50 lifem 1000 copies 1 shelfsize 10 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  3 | 47
+  4 | 1455667777
+  5 | 0013359
+  6 | 17
+
+docsize 50 lifem 1000 copies 1 shelfsize 10 N 21 
+median 		 47 
+trimean 	 48 
+midmean 	 48.09091 
+mean 		 48.80952 
+stddev 		 7.632949 
+IQR 		 8 
+mad 		 4.4478 
+SEM 		 1.665646 
+MeanOverSEM 	 29.30366 
+LogMeanOverSEM 	 1.466922 
+
+===  docsize 500 lifem 10 copies 1 shelfsize 1 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  991 | 38
+  992 | 48
+  993 | 22455556788
+  994 | 011246
+
+docsize 500 lifem 10 copies 1 shelfsize 1 N 21 
+median 		 9935 
+trimean 	 9935.5 
+midmean 	 9935.909 
+mean 		 9934.476 
+stddev 		 8.146282 
+IQR 		 8 
+mad 		 4.4478 
+SEM 		 1.777664 
+MeanOverSEM 	 5588.499 
+LogMeanOverSEM 	 3.747295 
+
+===  docsize 500 lifem 10 copies 1 shelfsize 10 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  991 | 489
+  992 | 02357888
+  993 | 02355566
+  994 | 04
+
+docsize 500 lifem 10 copies 1 shelfsize 10 N 21 
+median 		 9928 
+trimean 	 9928.5 
+midmean 	 9929.455 
+mean 		 9928.952 
+stddev 		 7.787658 
+IQR 		 12 
+mad 		 10.3782 
+SEM 		 1.699406 
+MeanOverSEM 	 5842.601 
+LogMeanOverSEM 	 3.766606 
+
+===  docsize 500 lifem 30 copies 1 shelfsize 1 N 21 
+
+  The decimal point is 2 digit(s) to the right of the |
+
+  80 | 6889
+  81 | 01111222344
+  81 | 55678
+  82 | 0
+
+docsize 500 lifem 30 copies 1 shelfsize 1 N 21 
+median 		 8118 
+trimean 	 8122.25 
+midmean 	 8123.273 
+mean 		 8125.286 
+stddev 		 33.66919 
+IQR 		 37 
+mad 		 37.065 
+SEM 		 7.347219 
+MeanOverSEM 	 1105.899 
+LogMeanOverSEM 	 3.043716 
+
+===  docsize 500 lifem 30 copies 1 shelfsize 10 N 21 
+
+  The decimal point is 2 digit(s) to the right of the |
+
+  80 | 
+  80 | 5788899
+  81 | 001122223333
+  81 | 56
+
+docsize 500 lifem 30 copies 1 shelfsize 10 N 21 
+median 		 8110 
+trimean 	 8109.5 
+midmean 	 8109.364 
+mean 		 8108.095 
+stddev 		 28.06939 
+IQR 		 40 
+mad 		 31.1346 
+SEM 		 6.125242 
+MeanOverSEM 	 1323.718 
+LogMeanOverSEM 	 3.121796 
+
+===  docsize 500 lifem 100 copies 1 shelfsize 1 N 21 
+
+  The decimal point is 2 digit(s) to the right of the |
+
+  38 | 5789
+  39 | 000122344
+  39 | 5667779
+  40 | 
+  40 | 6
+
+docsize 500 lifem 100 copies 1 shelfsize 1 N 21 
+median 		 3927 
+trimean 	 3927.5 
+midmean 	 3929 
+mean 		 3931.381 
+stddev 		 47.33654 
+IQR 		 62 
+mad 		 44.478 
+SEM 		 10.32968 
+MeanOverSEM 	 380.5908 
+LogMeanOverSEM 	 2.580458 
+
+===  docsize 500 lifem 100 copies 1 shelfsize 10 N 21 
+
+  The decimal point is 2 digit(s) to the right of the |
+
+  38 | 666
+  39 | 11112344
+  39 | 56667799
+  40 | 13
+
+docsize 500 lifem 100 copies 1 shelfsize 10 N 21 
+median 		 3936 
+trimean 	 3936.5 
+midmean 	 3939.818 
+mean 		 3939.143 
+stddev 		 47.26234 
+IQR 		 62 
+mad 		 44.478 
+SEM 		 10.31349 
+MeanOverSEM 	 381.9409 
+LogMeanOverSEM 	 2.581996 
+
+===  docsize 500 lifem 300 copies 1 shelfsize 1 N 21 
+
+  The decimal point is 2 digit(s) to the right of the |
+
+  14 | 
+  15 | 0011112223444
+  15 | 567889
+  16 | 01
+
+docsize 500 lifem 300 copies 1 shelfsize 1 N 21 
+median 		 1537 
+trimean 	 1540 
+midmean 	 1535.545 
+mean 		 1541.762 
+stddev 		 33.76078 
+IQR 		 58 
+mad 		 35.5824 
+SEM 		 7.367207 
+MeanOverSEM 	 209.2736 
+LogMeanOverSEM 	 2.320714 
+
+===  docsize 500 lifem 300 copies 1 shelfsize 10 N 21 
+
+  The decimal point is 2 digit(s) to the right of the |
+
+  14 | 8
+  15 | 000112233344
+  15 | 56667778
+
+docsize 500 lifem 300 copies 1 shelfsize 10 N 21 
+median 		 1534 
+trimean 	 1536 
+midmean 	 1535.091 
+mean 		 1534.857 
+stddev 		 28.73375 
+IQR 		 52 
+mad 		 34.0998 
+SEM 		 6.270219 
+MeanOverSEM 	 244.7853 
+LogMeanOverSEM 	 2.388785 
+
+===  docsize 500 lifem 1000 copies 1 shelfsize 1 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  44 | 766
+  46 | 5635579
+  48 | 379345
+  50 | 698
+  52 | 09
+
+docsize 500 lifem 1000 copies 1 shelfsize 1 N 21 
+median 		 483 
+trimean 	 483.5 
+midmean 	 483.6364 
+mean 		 485.3333 
+stddev 		 22.20886 
+IQR 		 22 
+mad 		 17.7912 
+SEM 		 4.84637 
+MeanOverSEM 	 100.1437 
+LogMeanOverSEM 	 2.000624 
+
+===  docsize 500 lifem 1000 copies 1 shelfsize 10 N 21 
+
+  The decimal point is 1 digit(s) to the right of the |
+
+  44 | 1
+  46 | 67259
+  48 | 115013334
+  50 | 35784
+  52 | 4
+
+docsize 500 lifem 1000 copies 1 shelfsize 10 N 21 
+median 		 491 
+trimean 	 491 
+midmean 	 489.3636 
+mean 		 489.1429 
+stddev 		 19.8879 
+IQR 		 24 
+mad 		 17.7912 
+SEM 		 4.339896 
+MeanOverSEM 	 112.7084 
+LogMeanOverSEM 	 2.051956 
+

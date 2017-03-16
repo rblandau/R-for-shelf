@@ -1,0 +1,55 @@
+#Creating Vectors and Combining them into a DataFrame
+
+#Create a Character Vector
+Actors <- c("John", "Meryl", "Andre")
+Actors
+
+class(Actors)
+length(Actors)
+Actors[2]
+
+
+#Create a Numeric Vector
+ht <- c(77, 66, 90)
+
+#Create a Date Vector
+DOB <- c("1939-10-27", "1949-06-22", "1946-05-19" )
+class(DOB)
+DOB <-as.Date(DOB)
+class(DOB)
+
+#Create a Categorical Variable
+g <-  c("m", "f", "m")
+class(g)
+
+#Use the factor() function to convert to a Categorical variable
+g <- factor(g)
+
+
+#Combine vectorsinto a Data.Frame
+Actors.DF  <- data.frame(Name=Actors, Height=ht, Birthday = DOB, Gender=g)
+Actors.DF$Name
+
+
+#Data.Frame
+dim(Actors.DF)
+Actors.DF[1,]   
+Actors.DF[,2]
+Actors.DF[3,3] 
+Actors.DF[2:3,]
+mean(Actors.DF[,2])
+
+#Calculate a New Variable
+Actors.DF$FT <- floor(Actors.DF$Height/12)
+Actors.DF$I <- Actors.DF$Height - (Actors.DF$FT *12)
+
+#Sort
+Actors.DF[with(Actors.DF, order(Height)), ]
+
+#set directory
+#getwd()
+#setwd()
+
+#write to file
+write.csv(Actors.DF, "ActorData.csv")
+write.table(Actors.DF, "ActorData.txt", sep="\t", row.names = TRUE)

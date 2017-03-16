@@ -1,0 +1,55 @@
+#Create a Function
+
+Feet <- function (X) {
+  X$Feet <- floor(X$Height/12)
+  return (X$Feet)
+}
+
+Inches <- function (X) {
+  FeetInches <- X$Feet*12
+  X$Inches <- X$Height - FeetInches
+  return (X$Inches)
+}
+
+
+#Create a Character Vector
+Celtics <- c("Bill", "Larry", "Rondo")
+Celtics
+
+class(Celtics)
+length(Celtics)
+
+Celtics[2]
+
+
+#Create a Numeric Vector
+hc <- c(81, 81, 73)
+
+#Create a Date Vector
+DOBC <- c("1939-10-27", "1956-12-07", "1966-02-22" )
+class(DOBC)
+DOBC <-as.Date(DOBC)
+class(DOBC)
+
+#Create a Categorical Variable
+gc <-  c("m", "m", "m")
+class(gc)
+
+#Use the factor() function to convert to a Categorical variable
+gc <- factor(gc)
+
+
+#Combine vectorsinto a Data.Frame
+Celtics.DF  <- data.frame(Name=Celtics, Height=hc, Birthday = DOBC, Gender=gc)
+Celtics.DF$Height
+
+#Use New Function
+Celtics.DF <- data.frame(Celtics.DF,Feet = Feet(Celtics.DF))
+Celtics.DF <- data.frame(Celtics.DF,Inches = Inches(Celtics.DF))
+
+#Height Only Vector
+h4 <- c(67, 71, 76, 80, 63)
+h5 <- data.frame(Height = h4)
+
+h5 <- data.frame(h5, Feet = Feet(h5))
+h5 <- data.frame(h5, Inches = Inches(h5))

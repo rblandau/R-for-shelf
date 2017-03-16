@@ -1,0 +1,594 @@
+R interesting commands
+
+
+tab
+    completion
+ctrl-uparrow
+    list of commands like the one you started to type
+ctrl-enter
+    execute current line or selected lines
+
+setwd("C:/someplace")
+setwd("~")
+
+installed.packages()
+    list all
+install.packages("thepackagename")
+library("thepackagename")
+    activate installed package
+update.packages()
+
+?functionname
+help(functionname)
+example(functionname)
+args(functionname)
+help.search("some search term")
+??("some search term")
+    shorthand for help.search
+sessionInfo()
+    versions, packages
+ls()
+    defined objects
+dir("C:/")
+    local disk file directory
+
+data()
+    show default pre-loaded data sets
+mtcars
+    prints dataset
+
+logical,integer,double,complex,character,raw
+vector, list, matrix, array
+TRUE,FALSE
+    reserved word constants
+T,F
+    variables
+
+foo=list(4,5,6)
+foo[1]
+    list of 1 item num 4
+foo[[1]]
+    num 4
+a <- list(name="Joe", 4, foo=c(3,8,9))
+m <- array( c(1,2,3,4,5,6), dim=c(2,3) )
+
+mydata <- read.csv("filename.txt")
+mydata <- read.csv("filename.txt",header=FALSE)
+mydata <- read.table("filename.txt",sep="\t",header=TRUE)
+mydata <- read.table("filename.txt",sep="\t",header=TRUE,stringsAsFactor=FALSE)
+x <- read.table(file = "clipboard", sep="\t", header=TRUE)
+
+go to menu Tools|Import Dataset
+
+click on file in Files to see contents
+
+http://www.dummies.com/how-to/content/how-to-use-the-clipboard-to-copy-and-paste-data-in.html
+    R for Dummies
+http://www.ats.ucla.edu/stat/r/faq/inputdata_R.htm
+    how to input data
+http://cran.r-project.org/web/packages/RMySQL/index.html
+http://cran.r-project.org/web/packages/available_packages_by_name.html
+
+Quantmod package for stocks
+install.packages('quantmod')
+library('quantmod')
+getSymbols("AAPL")
+barChart(AAPL)
+barChart(AAPL, subset='last 14 days')
+chartSeries(AAPL, subset='last 14 days')
+barChart(AAPL['2013-04-01::2013-04-12'])
+http://www.quantmod.com/examples/intro/
+
+rm(x)
+    remove variable x
+
+save.image()
+    saves workspace
+
+save(variablename, file="filename.rda")
+load("filename.rda")
+
+1:10
+    vector 1,2,3,4,5,6,7,8,9,10
+c(1:10)
+    same vector 1,2,3,4,5,6,7,8,9,10
+seq(1,10,3)
+    vector 1,4,7,10
+c(seq(1,10,3))
+    same vector 1,4,7,10
+seq(1,10,length=3)
+    vector 1.0, 5.5, 10.0
+
+head(mydata)
+head(mydata, n=10)
+head(mydata, 10)
+tail(mydata)
+tail(mydata, 10)
+mydata[1:8]
+
+str(mydata)
+colnames(mydata)
+rownames(mydata)
+
+summary(mydata)
+
+x <- c("snap", "crackle", "pop")
+paste("hello", x)
+paste("hello", x, collapse=" / ")
+
+bodyparts <- c("right hand","left hand","right foot","left foot","whole head")
+movements <- c("in","out","in out, in out","shake it all about")
+outer(bodyparts, movements, FUN=paste, sep=": ")
+as.character(outer(bodyparts, movements, FUN=paste, sep=": "))
+    [but the order is wrong]
+
+data(attitude)
+aa<-head(attitude)
+aa[aa$complaints>70,]
+mean(aa[,"rating"])
+mean( aa[ aa[ , "complaints"] > 70, "rating"])
+
+data(mtcars)
+mm<-mtcars
+mm<-head(mtcars,12)
+nrow(mm)
+ncol(mm)
+length(mtcars)
+    n columns
+length(mtcars[1,])
+    n columns
+length(mtcars[,1])
+    n rows
+names(mtcars)
+    column names
+rownames(mtcars)
+    row names (=car models)
+labels(mtcars)
+labels(mtcars)[1]
+    car names
+labels(mtcars)[2]
+    column names
+
+class(mm)
+str(mm)
+
+mm$cyl
+mm[,"cyl"]
+mm[,c("cyl","gear")]
+unique(mm$cyl)
+table(mm$cyl)
+table(mm$cyl,mm$gear)
+table(mm[,c("cyl","gear")])
+ftable(mm[,c("cyl","gear")])
+ftable(mm[,c("cyl","gear","carb")])
+
+fix(mtcars)
+    to edit the data
+
+paste("A", 1, "%") 
+paste(1:4, letters[1:4])
+paste(1:10) 
+    type chr
+list(1:10)
+    type int
+paste0("a", "b") == paste("a", "b", sep="")
+sprintf("1 %s two %s", "one", "2")
+foo = "2"
+sprintf("1 %s two %s", "one", foo)
+
+f <- function(a,b)
+{
+    return (a+b)
+}
+inc.it <- function(a,b=1) a+b
+    one-liner
+
+install.packages("psych")
+library(psych)
+describe(mydata)
+
+cor(mydata)
+    correlation matrix of all columns
+choose(6,3)
+    how many combinations of 3 from 6
+
+mypeople <- c("Bob", "Joanne", "Sally", "Tim", "Neal")
+combn(mypeople,2)
+combn(c("Bob", "Joanne", "Sally", "Tim", "Neal"),2)
+
+names(mtcars)
+mtcars.columns <- names(mtcars)
+mtcars$mpg
+dataframe$columnname
+
+mtcars[cola:colb]
+mtcars[,cola:colb]
+mtcars[row1:row2,cola:colb]
+mtcars[row1:row2,]
+indexing always 1-based
+mtcars[,-1]
+    exclude the first column
+mtcars[,c(1:4,6,8)]
+
+mtcars[,c(2,4)]
+    concatenate non-contiguous columns
+mtcars$mpg>20
+    returns boolean vector
+mtcars[mtcars$mpg>20,]
+    returns rows meeting condition
+mtcars[mtcars$mpg>20 & mtcars$cyl==4,]
+mtcars[mtcars$mpg>20,c("mpg","hp")]
+    returns partial rows
+
+mpg20 <- mtcars$mpg > 20
+cols <- c("mpg", "hp")
+mtcars[mpg20, cols]
+    same result but more typing
+
+attach(mtcars)
+mpg20 <- mpg > 20
+detach()
+
+subset(your data object, logical condition for the rows you want to return, select statement for the columns you want to return)
+subset(mtcars, mpg>20, c("mpg", "hp"))
+subset(mtcars, mpg==max(mpg))
+subset(mtcars, , c("mpg", "hp"))
+    all rows, some columns
+subset(mtcars, select=c("mpg", "hp"))
+    same
+
+table(diamonds$cut)
+table(diamonds$cut, diamonds$color)
+
+http://health.adelaide.edu.au/psychology/ccs/docs/lsr/lsr-0.3.pdf
+    Learning Statistics with R
+
+plot(mtcars$disp, mtcars$mpg)
+plot(mtcars$disp, mtcars$mpg, xlab="Engine displacement", ylab="mpg", main="MPG compared with engine displacement")
+plot(mtcars$disp, mtcars$mpg, xlab="Engine displacement", ylab="mpg", main="MPG vs engine displacement", las=1)
+plot(x.coord,y.coord,xlim=c(0,10),ylim=c(0,10),xlab="X axis label",ylab="Y axis label",main="TITLE OF PLOT")
+newline.x.coord=c(2,5)
+newline.y.coord=c(3,7)
+lines(newline.x.coord,newline.y.coord,col="red",lwd=3)
+
+
+http://courses.had.co.nz/11-rice/slides/01-basics.pdf
+    graphics approach
+
+install.packages("ggplot2")
+library(ggplot2)
+qplot(disp, mpg, data=mtcars)
+qplot(disp, mpg, ylim=c(0,35), data=mtcars)
+qplot(cty, hwy, data=mpg)
+qplot(cty, hwy, data=mpg, geom="jitter")
+
+ggplot(mtcars, aes(x=disp, y=mpg)) + geom_point()
+ggplot(pressure, aes(x=temperature, y=pressure)) + geom_line()
+ggplot(mydata, aes(x=xcol, y=ycol), ylim=0) + geom_line()
+ggplot(pressure, aes(x=temperature, y=pressure)) + geom_line() + geom_point()
+
+barplot(BOD$demand)
+barplot(BOD$demand, main="Graph of demand")
+barplot(BOD$demand, main="Graph of demand", names.arg = BOD$Time)
+
+cylcount <- table(mtcars$cyl)
+barplot(cylcount)
+    histogram of values
+qplot(mtcars$cyl)
+    same histogram
+ggplot(mtcars, aes(factor(cyl))) + geom_bar()
+    and this
+hist(mydata$columnName, breaks = n)
+    n = number of bins
+qplot(columnName, data=mydata, binwidth=n)
+ggplot(mydata, aes(x=columnName)) + geom_histogram(binwidth=n)
+
+boxplot(mtcars$mpg)
+boxplot(diamonds$x, diamonds$y, diamonds$z)
+
+http://flowingdata.com/2010/01/21/how-to-make-a-heatmap-a-quick-and-easy-solution/
+
+rainbow(n)
+heat.colors(n)
+terrain.colors(n)
+topo.colors(n)
+cm.colors(n)
+rainbow(5)
+
+mycolors <- rainbow(3)
+mycolors <- heat.colors(3)
+ggplot(mtcars, aes(x=factor(cyl))) + geom_bar(fill=mycolors)
+ggplot(mtcars, aes(x=factor(cyl))) + geom_bar(fill=rainbow(3))
+barplot(BOD$demand, col=rainbow(6))
+barplot(BOD$demand, col="royalblue3")
+testscores <- c(96, 71, 85, 92, 82, 78, 72, 81, 68, 61, 78, 86, 90)
+barplot(testscores)
+barplot(testscores, col="blue")
+
+testcolors <- ifelse(testscores >= 80, "blue", "red")
+barplot(testscores, col=testcolors)
+barplot(testscores, col=testcolors, main="Test scores")
+barplot(testscores, col=testcolors, main="Test scores", ylim=c(0,100))
+barplot(testscores, col=testcolors, main="Test scores", ylim=c(0,100), las=1)
+testscores <- sort(c(96, 71, 85, 92, 82, 78, 72, 81, 68, 61, 78, 86, 90), decreasing = TRUE)
+testscores <- c(96, 71, 85, 92, 82, 78, 72, 81, 68, 61, 78, 86, 90)
+testscores_sorted <- sort(testscores, decreasing = TRUE)
+testscores <- c(96, 71, 85, 92, 82, 78, 72, 81, 68, 61, 78, 86, 90)
+testscores_sorted <- sort(testscores, decreasing = TRUE)
+ggplot(results, aes(x=students, y=testscores)) + geom_bar(fill=testcolors, stat = "identity")
+qplot(factor(cyl), data=mtcars, geom="bar", fill=factor(cyl))
+
+http://www.harding.edu/fmccown/r/
+    Producing Simple Graphs with R
+
+jpeg("myplot.jpg", width=350, height=420)
+barplot(BOD$demand, col=rainbow(6))
+dev.off()
+
+my_vector <- (1:10)
+my_vector <- c(1:10)
+my_vector <- c(1, 4, "hello", TRUE)
+My_list <- list(1,4,"hello", TRUE)
+
+my_vector <- c(7,9,23,5)
+my_pct_vector <- my_vector * 0.01
+
+apply() function group and plyr add-on 
+apply(my_matrix, 1, median)
+    across rows
+apply(my_matrix, 2, median)
+    down columns
+http://nsaunders.wordpress.com/2010/08/20/a-brief-introduction-to-apply-in-r/
+http://plyr.had.co.nz/
+    plyr website
+http://streaming.stat.iastate.edu/workshops/r-intro/lectures/6-advancedmanipulation.pdf
+    plyr slides
+http://streaming.stat.iastate.edu/workshops/r-intro/
+    entire R workshop slides
+
+class(3)
+class(3.0)
+class(3L)
+class(as.integer(3))
+as.character(), as.list(), as.data.frame()
+dim(my_matrix)
+class(), str(), mode() 
+
+sqldf("select * from mtcars where mpg > 20 order by mpg desc")
+
+edit(mtcars)
+write.table(myData, "testfile.txt", sep="\t")
+write.csv(dataframe, filespec)
+
+x <- scan()
+name.x <- scan(, what="")
+
+12 bobby
+24 kate
+35 david
+20 michael
+x <- scan("d:/scan.txt", what=list(age=0, name=""))
+x <- scan("d:/scan.txt", what=list(NULL, name=character()))
+x <- x[sapply(x, length) > 0]
+
+AMC  Concord2229304099
+AMC  Pacer  1733504749
+AMC  Spirit 2226403799
+BuickCentury2032504816
+BuickElectra1540807827
+names <- scan("d:/names.txt", what=character() )
+test.fixed <- read.fwf("d:/testfixed.txt", col.names=names, width = c(5, 7, 2, 4, 4))
+    fixed width format
+
+write.table(test.csv, "d:/test1.txt", row.names=F, quote=F)
+    no row names, no quotes
+
+Function	Input	    Output	        Best for
+apply	    Rectangular	Rect or vect	Applying function to rows or columns
+lapply	    Anything	List	        Non-trivial operations on almost any data type
+sapply	    Anything	Simplified (if poss) or list	Same as lapply, but with simplified output
+plyr::ddply	data.frame	data.frame	    Applying function to groupings defined by variables
+
+m <- matrix(data=cbind(rnorm(30, 0), rnorm(30, 2), rnorm(30, 5)), nrow=30, ncol=3)
+    generate randoms
+apply(m, 2, mean)
+    mean of each column
+apply(m, 2, function(x) length(x[x<0]))
+    how many negs in each column
+apply(m, 2, function(x) is.matrix(x))
+    F, col a vector not matrix
+apply(m, 2, is.vector)
+    T
+apply(m, 2, function(x) mean(x[x>0]))
+    mean of pos items in each column
+sapply(1:3, function(col, mtx) mean(mtx[,col]), mtx=m)
+    mean of each column
+
+sapply(1:3, function(x) x^2)
+    returns vector
+lapply(1:3, function(x) x^2)
+    returns list
+sapply(1:3, function(x) x^2, simplify=F)
+    returns list
+sapply(1:3, function(x) x^2, simplify=T)
+    returns vector
+unlist(lapply(1:3, function(x) x^2))
+    returns vector
+
+M = matrix(round(runif(50, 1, 5), 0), nrow = 10, ncol = 5)
+sillyFunction = function(aRow) { c(mean(aRow), median(aRow)) }
+apply(M, 1, sillyFunction)
+    mean,median of rows
+apply(M, 2, sillyFunction)
+    mean,median of columns
+
+fy <- c(2010,2011,2012,2010,2011,2012,2010,2011,2012)
+company <- c("Apple","Apple","Apple","Google","Google","Google","Microsoft","Microsoft","Microsoft")
+revenue <- c(65225,108249,156508,29321,37905,50175,62484,69943,73723)
+profit <- c(14013,25922,41733,8505,9737,10737,18760,23150,16978)
+companiesData <- data.frame(fy, company, revenue, profit)
+str(companiesData)
+companiesData$fy <- as.factor(companiesData$fy)
+
+dataFrame$newColumn <- dataFrame$oldColumn1 + dataFrame$oldColumn2
+companiesData$margin <- (companiesData$profit / companiesData$revenue) * 100
+companiesData$margin <- round(companiesData$margin, 1)
+
+dataFrame <- transform(dataFrame, newColumnName = some equation)
+dataFrame <- transform(dataFrame, newColumn = oldColumn1 + oldColumn2)
+companiesData <- transform(companiesData, margin = (profit/revenue) * 100)
+companiesData <- transform(companiesData, margin = round((profit/revenue) * 100, 1)) 
+
+dataFrame$newColumn <- apply(dataFrame, 1, function(x) { . . . } )
+companiesData$margin <- apply(companiesData[,c('revenue', 'profit')], 1, function(x) { (x[2]/x[1]) * 100 } )
+companiesData$margin <- apply(companiesData[,c('revenue', 'profit')], 1, function(x) { round((x[2]/x[1]) * 100, 1) } )
+
+dataFrame$newColumn <- mapply(someFunction, dataFrame$column1, dataFrame$column2, dataFrame$column3)
+profitMargin <- function(netIncome, revenue)
+{ mar <- (netIncome/revenue) * 100
+  mar <- round(mar, 1)
+  return(mar) 
+}
+companiesData$margin <- mapply(profitMargin, companiesData$profit, companiesData$revenue)
+companiesData$margin <- mapply(function(x, y) round((x/y) * 100, 1), companiesData$profit, companiesData$revenue)
+mapply(someFunction, vector1, vector2, vector3)
+
+highestMargin <- max(companiesData$margin)
+highestMargin <- companiesData[companiesData$margin == max(companiesData$margin),]
+highestMargin <- subset(companiesData, margin==max(margin))
+
+install.packages("plyr")
+library(plyr)
+ddply(mydata, c('column name of a factor to group by', 'column name of the second factor to group by'), summarize OR transform, newcolumn = myfunction(column name(s) I want the function to act upon))
+myresult <- ddply(mydata, .(column name of factor I'm splitting by, column name second factor I'm splitting by), summarize OR transform, newcolumn = myfunction(column name I want the function to act upon))
+highestProfitMargins <- ddply(companiesData, .(company), summarize, bestMargin = max(margin))
+    one row per company, year with highest margin
+highestProfitMargins <- ddply(companiesData, 'company', transform, bestMargin = max(margin))
+    all rows
+myResults <- ddply(companiesData, 'company', transform, highestMargin = max(margin), lowestMargin = min(margin))
+    table with hignest and lowest margin columns appended
+highestProfitMargins <- ddply(companiesData, 'company', function(x) x[x$margin==max(x$margin),])
+    one row per company, highest margin
+highestProfitMargins <- ddply(companiesData, 'company', summarize, bestMargin = max(margin))
+    one row per company, highest margin
+
+companyOrder <- order(companiesData$margin)
+companiesOrdered <- companiesData[companyOrder,] 
+companiesOrdered <- companiesData[order(companiesData$margin),]
+companiesOrdered <- companiesData[order(-companiesData$margin),]
+    descending order, largest pos = smallest neg
+companiesData[order(companiesData$fy, -companiesData$margin),]
+    sort by fy then descending margin
+companiesOrdered <- companiesData[with(companiesData, order(fy, -margin)),]
+    with implies dataframe
+
+wide vs long data frames
+    factor for grouping
+    value for plotting wtih its name
+install.packages("reshape2")
+library(reshape2) 
+longData <- melt(your original data frame, a vector of your category variables)
+companiesLong <- melt(companiesData, c("fy", "company"))
+companiesLong <- melt(companiesData, id.vars=c("fy", "company"),
+  measure.vars=c("revenue", "profit", "margin"),
+  variable.name="financialCategory", 
+  value.name="amount")
+wideDataFrame <- dcast(longDataFrame, idVariableColumn1 + idVariableColumn2 ~ variableColumn, value.var="Name of column containing the measurement values")
+companiesWide <- dcast(companiesLong, fy + company ~ financialCategory, value.var="amount")
+
+vDates <- as.Date(c("2013-06-01", "2013-07-08", "2013-09-01", "2013-09-15"))
+vDates.bymonth <- cut(vDates, breaks = "month")
+dfDates <- data.frame(vDates, vDates.bymonth)
+
+log <- data.frame(Date = c("2013/05/25","2013/05/28","2013/05/31","2013/06/01","2013/06/02","2013/06/05","2013/06/07"), 
+  Quantity = c(9,1,15,4,5,17,18))
+log
+str(log)
+log$Date <- as.Date(log$Date, "%Y/%m/%d") 
+    if needed
+log$Month <- as.Date(cut(log$Date, breaks = "month"))
+    [something wrong in this syntax]
+log$Week <- as.Date(cut(log$Date, breaks = "week", start.on.monday = FALSE)) 
+    change weekly break point to Sunday
+    [something wrong in this syntax]
+
+# create a matrix of 10 rows x 2 columns
+m <- matrix(c(1:10, 11:20), nrow = 10, ncol = 2)
+# mean of the rows
+apply(m, 1, mean)
+# mean of the columns
+apply(m, 2, mean)
+# divide all values by 2
+apply(m, 1:2, function(x) x/2)
+
+attach(iris)
+head(iris)
+# get the mean of the first 4 variables, by species
+by(iris[, 1:4], Species, mean)
+    [wrong]
+
+# create a list with 2 elements
+l <- list(a = 1:10, b = 11:20)
+# the mean of the values in each element
+lapply(l, mean)
+# the sum of the values in each element
+lapply(l, sum)
+
+# create a list with 2 elements
+l <- list(a = 1:10, b = 11:20)
+# mean of values using sapply
+l.mean <- sapply(l, mean)
+# what type of object was returned?
+class(l.mean)
+
+l <- list(a = 1:10, b = 11:20)
+# fivenum of values using vapply
+l.fivenum <- vapply(l, fivenum, c(Min.=0, "1st Qu."=0, Median=0, "3rd Qu."=0, Max.=0))
+class(l.fivenum)
+l.fivenum
+
+replicate(10, rnorm(10))
+
+l1 <- list(a = c(1:10), b = c(11:20))
+l2 <- list(c = c(21:30), d = c(31:40))
+# sum the corresponding elements of l1 and l2
+mapply(sum, l1$a, l1$b, l2$c, l2$d)
+
+# let's start with our usual simple list example
+l <- list(a = 1:10, b = 11:20)
+# log2 of each value in the list
+rapply(l, log2)
+# log2 of each value in each list
+rapply(l, log2, how = "list")
+# what if the function is the mean?
+rapply(l, mean)
+
+tapply(X, INDEX, FUN = NULL, …, simplify = TRUE)
+attach(iris)
+# mean petal length by species
+tapply(iris$Petal.Length, Species, mean)
+
+tapply(mtcars$mpg, mtcars$cyl, mean)
+aggregate(mtcars$mpg ~ cyl, mtcars, mean)
+
+source("scriptfilename.r")
+
+dat<-data.frame(t=seq(0,2*pi,by=0.1))
+xhrt<-function(t) 16*sin(t)^3
+yhrt<-function(t) 13*cos(t)-5*cos(2*t)-2*cos(3*t)-cos(4*t)
+dat$y=yhrt(dat$t)
+dat$x=xhrt(dat$t)
+with(dat,plot(x,y,type="l",axes=F,xlab="",ylab=""))
+with(dat,polygon(x,y,col="hotpink"))
+
+norm, unif
+    distributions
+d, p, q, r
+    density, cumulative probability, quantile, random sample
+rnorm, runif
+round(qnorm(0.025),2) == -1.96
+
+
+
+
+

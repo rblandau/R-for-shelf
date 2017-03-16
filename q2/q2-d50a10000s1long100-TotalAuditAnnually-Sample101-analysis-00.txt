@@ -1,0 +1,82 @@
+Q2 Annual total audit, sample size 101 for borderline cases 
+Input data from  ./q2-d50a10000s1long100-TotalAuditAnnually-Sample101-output-00 
+
+Question 0 Summary losses (medians)
+  docsize lifem c1 c2 c3 c4 c5 c8 c10 c14 c16 c20
+1      50    50  0  0  0  0  0  0   0   0   0   0
+2      50   100  0  0  0  0  0  0   0   0   0   0
+
+Question 0 Summary losses (trimeans)
+  docsize lifem c1 c2 c3 c4 c5 c8 c10 c14 c16 c20
+1      50    50  0  0  0  0  0  0   0   0   0   0
+2      50   100  0  0  0  0  0  0   0   0   0   0
+
+===  docsize 50 lifem 50 copies 3 
+
+  The decimal point is 1 digit(s) to the left of the |
+
+   0 | 00000000000000000000000000000000000000000000000000000000000000000000+6
+   1 | 
+   2 | 
+   3 | 
+   4 | 
+   5 | 
+   6 | 
+   7 | 
+   8 | 
+   9 | 
+  10 | 000000000000000
+
+     docsize 50 lifem 50 copies 3 
+mean 		 0.1485149 
+midmean 	 0 
+median 		 0 
+trimean 	 0 
+stddev 		 0.3573832 
+IQR 		 0 
+mad 		 0 
+SEM 		 0.03556096 
+MeanOverSEM 	 4.176345 
+LogMeanOverSEM 	 0.6207964 
+
+===  docsize 50 lifem 50 copies 4 
+
+  The decimal point is 8 digit(s) to the left of the |
+
+  0 | 00000000000000000000000000000000000000000000000000000000000000000000+21
+
+     docsize 50 lifem 50 copies 4 
+mean 		 0 
+midmean 	 0 
+median 		 0 
+trimean 	 0 
+stddev 		 0 
+IQR 		 0 
+mad 		 0 
+SEM 		 0 
+MeanOverSEM 	 NaN 
+LogMeanOverSEM 	 NaN 
+
+===  docsize 50 lifem 100 copies 3 
+
+  The decimal point is 1 digit(s) to the left of the |
+
+   0 | 00000000000000000000000000000000000000000000000000
+   2 | 
+   4 | 
+   6 | 
+   8 | 
+  10 | 0
+
+     docsize 50 lifem 100 copies 3 
+mean 		 0.01960784 
+midmean 	 0 
+median 		 0 
+trimean 	 0 
+stddev 		 0.140028 
+IQR 		 0 
+mad 		 0 
+SEM 		 0.01960784 
+MeanOverSEM 	 1 
+LogMeanOverSEM 	 9.643275e-17 
+
