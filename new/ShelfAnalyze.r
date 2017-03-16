@@ -147,7 +147,7 @@ main <- function(){
         #  to a separate file.  
         if (exists("bTablesOnly") & (! bTablesOnly))
         {
-            cat("============================================\n")
+            cat("============================================\n\n")
             # Let's look at the distributions of the samples.  
             fnDetailedSampleStats(datn)
         }

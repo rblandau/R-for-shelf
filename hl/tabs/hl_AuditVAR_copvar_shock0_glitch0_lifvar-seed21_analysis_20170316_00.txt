@@ -5,8 +5,8 @@ Input data from  ../hl/data/GiantOutput_af10000s1_ShortLogs_00.txt
 Output analysis into  ../hl/tabs/hl_AuditVAR_copvar_shock0_glitch0_lifvar-seed21_analysis_20170316_00.txt 
 
 analysis tables by  ./ShelfAnalyze.r 
-and summarize script ./summ-audit.r 
- at  20170316_143445 EDT 
+and summarize script ./summ-audit-test1.r 
+ at  20170316_152550 EDT 
 
 Summary losses (midmeans)
   auditfreq auditseg    lifem   c1     c2  c3 c4 c5 c8

@@ -28,7 +28,7 @@ fnSelectColumns <- function(dat)
 #
 summarize <- function(myframe,mysummaryout,mysummaryfunction)
 {
-    # NOTE: colnames and newrow lists must be in the same order!
+    # NOTE: colnames and newrow declarations must be in the same order.
     colnames(mysummaryout) <- c("auditfreq","auditseg","lifem","c1","c2","c3","c4","c5","c8")
 
     for (af in levels(factor(myframe$dat.auditfrequency)))
@@ -57,9 +57,10 @@ summarize <- function(myframe,mysummaryout,mysummaryfunction)
                 #  Increase the penalty for printing in scientific 
                 #  (exponential) format, and limit the number of digits
                 #  so that there are no places after the radix point.  
+                # BEWARE of column order dependency here!!!
+                colnames(mysummaryout)[3] <- "   lifem"
                 options("scipen"=100, "digits"=1)
                 # End of absurd hack.  
-                
                 mysummaryout <- rbind(mysummaryout,as.numeric(newrow))
             }
         }
@@ -112,23 +113,22 @@ fnTableTri <- function(dat){
 }#ENDFN fnTableTri
 
 # f n D e t a i l e d S a m p l e S t a t s 
-fnDetailedSampleStats <- function(myframe)
+fnDetailedSampleStats <- function(datn)
 {
-    # The order of nesting here is a frigging mess.  For the detailed stats,
-    #  this determines the order of printing, not any aggregation.
-    for (f1 in levels(factor(myframe$dat.auditfrequency)))
+    # The order of nesting here makes some comparisons easier than others.  
+    for (af in levels(factor(datn$dat.auditfrequency)))
     {
-        tmp1 <- data.frame(myframe[myframe$dat.auditfrequency==f1,]);
-        for (f2 in levels(factor(tmp1$dat.auditsegments))) 
+        tmp1 <- data.frame(datn[datn$dat.auditfrequency==af,]);
+        for (lfm in levels(factor(tmp1$dat.lifem))) 
         {
-            tmp2 <- tmp1[tmp1$dat.auditsegments==f2,]
-            for (f3 in levels(factor(tmp2$dat.lifem)))
+            tmp2 <- tmp1[tmp1$dat.lifem==lfm,]
+            for (cp in levels(factor(tmp2$dat.copies)))
             {
-                tmp3 <- tmp2[tmp2$dat.lifem==f3,]
-                for (f4 in levels(factor(tmp3$dat.copies)))
+                tmp3 <- tmp2[tmp2$dat.copies==cp,]
+                for (as in levels(factor(tmp3$dat.auditsegments)))
                 {
-                    tmp4 <- tmp3[tmp3$dat.copies==f4,]
-                    WhateverSampleSadisticsYouWant("lifem",f3,"copies",f4,"auditfreq",f1,"auditseg",f2,tmp4$dat.lost)
+                    tmp4 <- tmp3[tmp3$dat.auditsegments==as,]
+                    WhateverSampleSadisticsYouWant("lifem",lfm,"copies",cp,"auditfreq",af,"auditseg",as,tmp4$dat.lost)
                 }
             }
         }
