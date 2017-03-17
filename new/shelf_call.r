@@ -6,13 +6,15 @@
 # - select all (ctrl-A), and 
 # - execute the script (ctrl-Enter).
 
-sInputFilename  <- "../hl/data/test/big-q3-afvar.txt"
-sOutputFilename <- "../hl/tabs/test2a_q3_combined_AuditVar_copvar_shock0_glitch0_lifvar-seed21_analysis_20170316_00.txt"
-sTitle <- "test2a Q3-NOT-HL copies=var Audit=var Glitch=0 Shock=0 lifem=var seedXXX"
-sSubtitle <- "(test of summ-audit-test2.r with no lifem column head hack)"
-sSummarizeFilename <- "./summ-audit-test2.r"
+sInputFilename  <- "../hl/data/GiantOutput_test_cvar_lifvar_shvar_af10000s1_01.txt"
+sOutputFilename <- "../hl/tabs/shocktest_Giant_AuditYr_copvar_shockvar_glitch0_lifvar-seed21_analysis_20170317_01.txt"
+sTitle <- "shocktest01 ShockTest HL copies=var Audit=yr Glitch=0 Shock=var lifem=var seed21"
+sSubtitle <- "(test of summ-shock.r)"
+sSummarizeFilename <- "./summ-shock.r"
 sAnalyzeFilename <- "./ShelfAnalyze.r"
-bTablesOnly <- 0
+bTablesOnly <- 1
+options(max.print=9999)
+options(width=100)
 
 source(sAnalyzeFilename)
 main()
