@@ -6,20 +6,20 @@
 # - select all (ctrl-A), and 
 # - execute the script (ctrl-Enter).
 
-sInputFilename  <- "../hl/data/GiantOutput_test_cvar_lifvar_shvar_af10000s1_01.txt"
-sOutputFilename <- "../hl/tabs/shocktest_Giant_AuditYr_copvar_shockvar_glitch0_lifvar-seed21_analysis_20170317_01.txt"
-sTitle <- "shocktest01 ShockTest HL copies=var Audit=yr Glitch=0 Shock=var lifem=var seed21"
-sSubtitle <- "(test of summ-shock.r)"
-sSummarizeFilename <- "./summ-shock.r"
+sInputFilename  <- "../hl/data/test/big-q3-afvar.txt"
+sOutputFilename <- "../hl/tabs/test_q3_combined_AuditVar_copvar_shock0_glitch0_lifvar-seed21_analysis_20170318_01.txt"
+sTitle <- "Q3-NOT-HL copies=var Audit=var Glitch=0 Shock=0 lifem=var seedXXX"
+sSubtitle <- "(OLD DATA! test of summ-audit.r with new detailed callseq)"
+sSummarizeFilename <- "./summ-audit.r"
 sAnalyzeFilename <- "./ShelfAnalyze.r"
-bTablesOnly <- 1
+bTablesOnly <- 0
 options(max.print=9999)
 options(width=100)
+nDocs <- 10000
 
 source(sAnalyzeFilename)
 main()
 # Unwind any remaining sink()s to close output files.  
 # Particularly important in case of errors.  
 while (sink.number() > 0) {sink()}
-
 #END

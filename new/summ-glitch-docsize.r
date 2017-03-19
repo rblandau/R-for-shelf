@@ -7,6 +7,8 @@
 # . . . revised many times . . . 
 # 20170310  RBL Extract summarize function from larger script.
 # 20170312  RBL Also extract table calcs and detailed stats printer.  
+# 20170318  RBL Add percentage loss table for midmeans.
+# 
 # 
 
 # f n S e l e c t C o l u m n s 
@@ -83,6 +85,21 @@ fnTableMid <- function(dat)
         dat2 <- data.frame(dat$docsize,dat$lifem,dat$copies,dat$lost,dat$auditfrequency,dat$glitchfreq,dat$glitchimpact)
         datn <- dat2[dat2$dat.copies<=8,]
         tsummid <- summarize(datn,xsummid,midmean)
+        return(tsummid)
+    }#ENDIFFALSE
+}#ENDFN fnTableMid
+
+# f n T a b l e M i d P c t 
+fnTableMidPct <- function(dat)
+{
+    if(TRUE){
+        # Summary table with midmeans.
+        tsummid <- fnTableMid(dat)
+        for (col in c('c1','c2','c3','c4','c5','c8'))
+        {
+            # Convert loss numberss to percentages of collection size.
+            tsummid[,col] <- tsummid[,col] / nDocs * 100.0
+        }
         return(tsummid)
     }#ENDIFFALSE
 }#ENDFN fnTableMid

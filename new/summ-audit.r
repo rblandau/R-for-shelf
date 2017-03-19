@@ -9,6 +9,8 @@
 # 20170312  RBL Also extract table calcs and detailed stats printer.  
 # 20170316  RBL Produce this new audit-only version from old 
 #                docsize-glitchimpact one.
+# 20170318  RBL Add percentage loss table for midmeans.
+# 
 # 
 
 # f n S e l e c t C o l u m n s 
@@ -76,12 +78,27 @@ summarize <- function(myframe,mysummaryout,mysummaryfunction)
 # f n T a b l e M i d 
 fnTableMid <- function(dat)
 {
-    if(TRUE){
+    if(1){
         # Summary table with midmeans.
         xsummid <- data.frame(rbind(numeric(9)))
         dat2 <- fnSelectColumns(dat)
         datn <- dat2[dat2$dat.copies<=8,]
         tsummid <- summarize(datn,xsummid,midmean)
+        return(tsummid)
+    }#ENDIFFALSE
+}#ENDFN fnTableMid
+
+# f n T a b l e M i d P c t 
+fnTableMidPct <- function(dat)
+{
+    if(1){
+        # Summary table with midmeans.
+        tsummid <- fnTableMid(dat)
+        for (col in c('c1','c2','c3','c4','c5','c8'))
+        {
+            # Convert loss numberss to percentages of collection size.
+            tsummid[,col] <- tsummid[,col] / nDocs * 100.0
+        }
         return(tsummid)
     }#ENDIFFALSE
 }#ENDFN fnTableMid
@@ -117,18 +134,22 @@ fnDetailedSampleStats <- function(myframe)
     # The order of nesting here is a frigging mess.  For the detailed stats,
     #  this determines the order of printing, not any aggregation.
     for (f1 in levels(factor(myframe$dat.auditfrequency)))
-    {
-        tmp1 <- data.frame(myframe[myframe$dat.auditfrequency==f1,]);
+    {   tmp1 <- data.frame(myframe[myframe$dat.auditfrequency==f1,]);
+    
         for (f2 in levels(factor(tmp1$dat.auditsegments))) 
-        {
-            tmp2 <- tmp1[tmp1$dat.auditsegments==f2,]
-            for (f3 in levels(factor(tmp2$dat.lifem)))
-            {
-                tmp3 <- tmp2[tmp2$dat.lifem==f3,]
-                for (f4 in levels(factor(tmp3$dat.copies)))
-                {
-                    tmp4 <- tmp3[tmp3$dat.copies==f4,]
-                    WhateverSampleSadisticsYouWant("lifem",f3,"copies",f4,"auditfreq",f1,"auditseg",f2,tmp4$dat.lost)
+        {   tmp2 <- tmp1[tmp1$dat.auditsegments==f2,]
+        
+            tmp10 <- tmp2
+            for (f11 in levels(factor(tmp10$dat.lifem)))
+            {   tmp11 <- tmp10[tmp10$dat.lifem==f11,]
+
+                for (f12 in levels(factor(tmp11$dat.copies)))
+                {   tmp12 <- tmp11[tmp11$dat.copies==f12,]
+
+                    header <- paste('auditfreq',f1, 'segments',f2, 
+                                'lifem',f11, 'copies',f12
+                                )               
+                    WhateverSampleSadisticsYouWant(header, tmp12$dat.lost)
                 }
             }
         }

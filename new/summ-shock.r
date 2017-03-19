@@ -1,4 +1,5 @@
-# R script to summarize PreservationSimulation/shelf data
+# summ-shock.r
+# R script to summarize PreservationSimulation/shelf data.
 # All the grouping and aggregation dependent code should go in here.
 #  And there will be one of these files for various combinations of 
 #  grouping and aggregation.
@@ -9,6 +10,9 @@
 # 20170312  RBL Also extract table calcs and detailed stats printer.  
 # 20170316  RBL Produce this new audit-only version from old 
 #                docsize-glitchimpact one.
+# 20170318  RBL Add percentage loss table for midmeans.
+#               Finally do detailed stats for shocks.
+# 
 # 
 
 # f n S e l e c t C o l u m n s 
@@ -99,6 +103,22 @@ fnTableMid <- function(dat)
     }#ENDIFFALSE
 }#ENDFN fnTableMid
 
+# f n T a b l e M i d P c t 
+fnTableMidPct <- function(dat)
+{
+    if(TRUE){
+        # Summary table with midmeans.
+        tsummid <- fnTableMid(dat)
+        for (col in c('c1','c2','c3','c4','c5','c8'))
+        {
+            # Convert loss numberss to percentages of collection size.
+            tsummid[,col] <- tsummid[,col] / nDocs * 100.0
+        }
+        return(tsummid)
+    }#ENDIFFALSE
+}#ENDFN fnTableMid
+
+
 # f n T a b l e M e d 
 fnTableMed <- function(dat)
 {
@@ -129,21 +149,32 @@ fnDetailedSampleStats <- function(myframe)
 {
     # The order of nesting here is a frigging mess.  For the detailed stats,
     #  this determines the order of printing, not any aggregation.
-    for (f1 in levels(factor(myframe$dat.auditfrequency)))
-    {
-        tmp1 <- data.frame(myframe[myframe$dat.auditfrequency==f1,]);
-        for (f2 in levels(factor(tmp1$dat.auditsegments))) 
-        {
-            tmp2 <- tmp1[tmp1$dat.auditsegments==f2,]
-            for (f3 in levels(factor(tmp2$dat.lifem)))
-            {
-                tmp3 <- tmp2[tmp2$dat.lifem==f3,]
-                for (f4 in levels(factor(tmp3$dat.copies)))
-                {
-                    tmp4 <- tmp3[tmp3$dat.copies==f4,]
-                    WhateverSampleSadisticsYouWant("lifem",f3,"copies",f4,
-                        "auditfreq",f1,"auditseg",f2,
-                        tmp4$dat.lost)
+    for (f1 in levels(factor(myframe$dat.shockfreq)))
+    {   tmp1 <- data.frame(myframe[myframe$dat.shockfreq==f1,]);
+    
+        for (f2 in levels(factor(tmp1$dat.shockimpact))) 
+        {   tmp2 <- tmp1[tmp1$dat.shockimpact==f2,]
+
+            for (f3 in levels(factor(tmp2$dat.shockmaxlife))) 
+            {   tmp3 <- tmp2[tmp2$dat.shockmaxlife==f3,]
+
+                for (f4 in levels(factor(tmp3$dat.shockspan))) 
+                {   tmp4 <- tmp3[tmp3$dat.shockspan==f4,]
+
+                    tmp10 <- tmp4
+                    for (f11 in levels(factor(tmp10$dat.lifem)))
+                    {   tmp11 <- tmp10[tmp10$dat.lifem==f11,]
+
+                        for (f12 in levels(factor(tmp11$dat.copies)))
+                        {   tmp12 <- tmp11[tmp11$dat.copies==f12,]
+
+                            header <- paste('shockfreq',f1, 'impact',f2, 
+                                        'duration',f3, 'span',f4, 
+                                        'lifem',f11, 'copies',f12
+                                        )               
+                            WhateverSampleSadisticsYouWant(header, tmp12$dat.lost)
+                        }
+                    }
                 }
             }
         }

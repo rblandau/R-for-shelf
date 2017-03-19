@@ -1,15 +1,6 @@
 # R script to set up PreservationSimulation/shelf data
 # RBLandau 20141214
 # revised 20150619
-# revised 20150701 to group by glitch impact (outside).
-# revised 20150810 to ignore missing data (NA) values in most calcs.
-# revised 20150918 to include more data in datn.
-# revised 20160827 to include better header info in file.
-# revised 20161006 to print lifem sanely when it has large values.  
-# revised 20170302 to narrow copies to 8 instead of 20.
-# revised 20170310 to remove summarize function to separate file.
-# revised 20170312 to remove the dump-stats, too, to grouping-specific file.
-# revised 20170315 to repair some local data references.
 # 
 
 # REQUIRES the following to be defined as global strings before invoking
@@ -45,13 +36,13 @@ fnHeadingInfo <- function(myfilename)
 
 # W h a t e v e r S a m p l e S a d i s t i c s Y o u W a n t 
 # Prints a header line and then all these stats.  
-# The header line is anything you want, four pairs of name and value.  
-WhateverSampleSadisticsYouWant <- function(p1n,p1,p2n,p2,p3n,p3,p4n,p4,vect)
+# The header line is anything you want, usually pairs of name and value.  
+WhateverSampleSadisticsYouWant <- function(headerline,vect)
 {
     # for the grouping variables, args include name (p1n) and then value (p1).
-    cat("====== ",p1n,p1,p2n,p2,p3n,p3,p4n,p4,"N",length(vect)," ======","\n")
+    cat("====== ",headerline,"N",length(vect)," ======","\n")
     stem(vect)
-    cat(p1n,p1,p2n,p2,p3n,p3,p4n,p4,"N",length(vect),"\n")
+    cat(headerline,"N",length(vect),"\n")
     cat("median","\t\t",median(vect,na.rm=TRUE),"\n")
     cat("trimean","\t",trimean(vect),"\n")
     cat("midmean","\t",midmean(vect),"\n")
@@ -103,6 +94,10 @@ main <- function(){
     assign("dat", dat, envir=globalenv())
     assign("datn", datn, envir=globalenv())
 
+    # How many documents in the collection?  Default = 10K.
+    # Can be overridden by defining before this script is called.  
+    if (! exists("nDocs")) {nDocs <- 10000}
+
     # H E A D I N G S 
     # Put out headings immediately to reassure the R user
     fnHeadingInfo(sMynameIs)
@@ -119,6 +114,7 @@ main <- function(){
     fnHeadingInfo(sMynameIs)
 
     # Show results.
+    # L O S S   C O U N T S 
     if(TRUE){
         cat("Summary losses (midmeans)\n")
         summid <- fnTableMid(dat)
@@ -126,14 +122,24 @@ main <- function(){
         cat("\n")
     }#ENDIFFALSE
 
+    # L O S S   P E R C E N T A G E S 
     if(TRUE){
+        cat("Percentage losses (midmeans)\n")
+        summidpct <- fnTableMidPct(dat)
+        print(summidpct)
+        cat("\n")
+    }#ENDIFFALSE
+
+    # L O S S   C O U N T S 
+    if(0){
         cat("Summary losses (medians)\n")
         summed <- fnTableMed(dat)
         print(summed)
         cat("\n")
     }#ENDIFFALSE
 
-    if(TRUE){
+    # L O S S   C O U N T S 
+    if(0){
         cat("Summary losses (trimeans)\n")
         sumtri <- fnTableTri(dat)
         print(sumtri)
@@ -158,5 +164,19 @@ main <- function(){
     sink()
 
 }#ENDFN main
+
+# Edit history:
+# 20150701  RBL group by glitch impact (outside).
+# 20150810  RBL ignore missing data (NA) values in most calcs.
+# 20150918  RBL include more data in datn.
+# 20160827  RBL include better header info in file.
+# 20161006  RBL print lifem sanely when it has large values.  
+# 20170302  RBL narrow copies to 8 instead of 20.
+# 20170310  RBL remove summarize function to separate file.
+# 20170312  RBL remove the dump-stats, too, to grouping-specific file.
+# 20170315  RBL repair some local data references.
+# 20170318  RBL Add table of percentage losses.
+# 
+# 
 
 #END
