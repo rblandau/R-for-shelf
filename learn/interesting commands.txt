@@ -588,7 +588,9 @@ d, p, q, r
 rnorm, runif
 round(qnorm(0.025),2) == -1.96
 
-
+with plyr:
+arrange(df=someframe, list, of, fields, to, reorder, by, -hightolowfield)
+ddply(df, c("quoted","field","names"), function(xrow){something})
 
 
 

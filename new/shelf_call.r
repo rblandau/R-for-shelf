@@ -6,16 +6,15 @@
 # - select all (ctrl-A), and 
 # - execute the script (ctrl-Enter).
 
-sInputFilename  <- "../hl/data/test/big-q3-afvar.txt"
-sOutputFilename <- "../hl/tabs/test_q3_combined_AuditVar_copvar_shock0_glitch0_lifvar-seed21_analysis_20170318_01.txt"
-sTitle <- "Q3-NOT-HL copies=var Audit=var Glitch=0 Shock=0 lifem=var seedXXX"
-sSubtitle <- "(OLD DATA! test of summ-audit.r with new detailed callseq)"
-sSummarizeFilename <- "./summ-audit.r"
+sInputFilename  <- "../hl/data/GiantOutput_shock5yr_lenvar_00.txt"
+sOutputFilename <- "../hl/tabs/shocktest_freq5yr_lenvar_seed21_analysis_20170320_00.txt"
+sTitle <- "shocktest HL copies=var Audit=1yr Glitch=0 Shock=5yr len=var lifem=var seed21"
+sSubtitle <- "(impact=50,100pct len=var)"
+sSummarizeFilename <- "./summ-shock.r"
 sAnalyzeFilename <- "./ShelfAnalyze.r"
 bTablesOnly <- 0
 options(max.print=9999)
 options(width=100)
-nDocs <- 10000
 
 source(sAnalyzeFilename)
 main()

@@ -12,6 +12,7 @@
 #                docsize-glitchimpact one.
 # 20170318  RBL Add percentage loss table for midmeans.
 #               Finally do detailed stats for shocks.
+# 20170320  RBL Special version that starts copies at 2!!!!!!
 # 
 # 
 
@@ -36,7 +37,7 @@ summarize <- function(myframe,mysummaryout,mysummaryfunction)
 {
     # NOTE: colnames and newrow lists must be in the same order!
     colnames(mysummaryout) <- c("shockfreq","impact","span","maxlife","lifem",
-        "c1","c2","c3","c4","c5","c8")
+        "c2","c3","c4","c5","c8","c1")
 
     for (sf in levels(factor(myframe$dat.shockfreq)))
     {   tmp1 <- data.frame(myframe[myframe$dat.shockfreq==sf,]);
