@@ -1,0 +1,17 @@
+# What git should ignore
+
+# files to ignore everywhere
+*.zip
+*.tmp
+*.pyc
+*.bak
+*.wbk
+
+test
+tmp
+logs
+
+# R Studio detritus
+*.RData
+*.Rhistory
+
