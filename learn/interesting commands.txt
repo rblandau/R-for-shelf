@@ -33,9 +33,9 @@ dir("C:/")
     local disk file directory
 
 data()
-    show default pre-loaded data sets
+    shows default pre-loaded data sets
 mtcars
-    prints dataset
+    prints that dataset
 
 logical,integer,double,complex,character,raw
 vector, list, matrix, array
@@ -591,6 +591,29 @@ round(qnorm(0.025),2) == -1.96
 with plyr:
 arrange(df=someframe, list, of, fields, to, reorder, by, -hightolowfield)
 ddply(df, c("quoted","field","names"), function(xrow){something})
+
+
+## If you want to source() a bunch of files, something like
+## the following may be useful:
+ sourceDir <- function(path, trace = TRUE, ...) {
+    for (nm in list.files(path, pattern = "[.][RrSsQq]$")) {
+       if(trace) cat(nm,":")
+       source(file.path(path, nm), ...)
+       if(trace) cat("\n")
+    }
+ }
+
+pathnames <- list.files(pattern="[.]R$", path="R/", full.names=TRUE);
+sapply(pathnames, FUN=source);
+
+or even shorter:
+
+sapply(list.files(pattern="[.]R$", path="R/", full.names=TRUE), source);
+
+
+
+
+
 
 
 

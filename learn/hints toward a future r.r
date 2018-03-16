@@ -47,3 +47,25 @@ for (s1 in f1) {d1<-data.frame(bar[c1==s1,])
         sink()
     }
 }
+
+
+
+# and a strong reply from
+# https://stackoverflow.com/questions/10349206/add-legend-to-ggplot2-line-plot
+
+You can get the desired effect by (and this also cleans up the original plotting code):
+
+ggplot(data = datos, aes(x = fecha)) +
+  geom_line(aes(y = TempMax, colour = "TempMax")) +
+  geom_line(aes(y = TempMedia, colour = "TempMedia")) +
+  geom_line(aes(y = TempMin, colour = "TempMin")) +
+  scale_colour_manual("", 
+                      breaks = c("TempMax", "TempMedia", "TempMin"),
+                      values = c("red", "green", "blue")) +
+  xlab(" ") +
+  scale_y_continuous("Temperatura (C)", limits = c(-10,40)) + 
+  labs(title="TITULO")
+
+The idea is that each line is given a color by mapping the colour aesthetic to a constant string. Choosing the string which is what you want to appear in the legend is the easiest. The fact that in this case it is the same as the name of the y variable being plotted is not significant; it could be any set of strings. It is very important that this is inside the aes call; you are creating a mapping to this "variable".
+
+scale_colour_manual can now map these strings to the appropriate colors. The result is 
